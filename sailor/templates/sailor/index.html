@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html class="no-js">
+{% load static %}
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="Codenpixel.com">
+	<link rel="icon" href=" {% static 'favicon.ico' %} ">
+	{% block title %}
+	{% endblock title %}
+	<title>Real Estate</title>
+	<!-- Bootstrap core CSS -->
+	<link href=" {% static 'css/bootstrap.min.css' %} " rel="stylesheet">
+	<link href=" {% static 'css/bootstrap-extra-modal.css' %} " rel="stylesheet">
+	<link href=" {% static 'css/plugins.css' %} " rel="stylesheet">
+	<!-- Icons -->
+	<link href=" {% static 'css/themify-icons.css' %} " rel="stylesheet">
+	<link href=" {% static 'css/font-awesome.min.css' %} " rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,300italic,500,700,900' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Raleway:400,100,300,500,600,700,800,900,200' rel='stylesheet' type='text/css'>
+	<!-- RS5.0 Main Stylesheet -->
+	<link rel="stylesheet" type="text/css" href=" {% static 'revolution/css/settings.css' %} ">
+	<!-- RS5.0 Layers and Navigation Styles -->
+	<link rel="stylesheet" type="text/css" href=" {% static 'revolution/css/layers.css' %} ">
+	<link rel="stylesheet" type="text/css" href=" {% static 'revolution/css/navigation.css' %} ">
+	<!-- Custom styles for this template -->
+	<link href=" {% static 'css/style.css' %} " rel="stylesheet">
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+	{% block script %}
+	{% endblock script %}
+
+	{% block head_links %}
+	{% endblock %}
+
+</head>
+
+<body>
+	<div class="loader"></div>
+	<div class="wrapper">
+		<!-- header -->
+		<header>
+			<div class="top-bar bg-light hdden-xs">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6 list-inline list-unstyled no-margin hidden-xs">
+							<p class="no-margin" style="padding:10px 0 0 0; color:#77C84E; font-weight:BigBold">
+								{% for company in company  %}
+									<strong>
+									{{company.contact.contact}} or 
+								</strong> {{company.email}}
+								{% endfor %}
+							</p>
+						</div>
+						<div class="col-sm-4 col-sm-offset-2" style="padding:0 0 0 50px;">
+							<ul class="list-inline list-unstyled pull-right">
+								<li class="cursor">
+									{% if user.is_authenticated %}
+          								{{user.username}}
+        						  <li class="btn  ripple-effect btn-success"><a href="accounts/logout">Logout</a></li>
+									{% else %}
+ 									<li class="btn ripple-effect btn-success"><a href="accounts/login">Login</a></li>
+									<li class="btn  ripple-effect btn-success"><a href="{% url 'signup' %}">Register</a></li>
+									{% endif %}
+							</ul>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			<div id="nav-wrap">
+				<div class="nav-wrap-holder">
+					<div class="container" id="nav_wrapper">
+						<nav class="navbar navbar-static-top nav-white">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Navbar">
+									<span class="sr-only">
+											Toggle navigation
+										</span>
+									<span class="icon-bar">
+										</span>
+									<span class="icon-bar">
+										</span>
+									<span class="icon-bar">
+										</span>
+								</button>
+								<a class="navbar-brand" href=" {% url 'index' %} ">
+									<img src=" {% static 'images/logo-dark.png' %} " alt="logo" class="img-responsive">
+								</a>
+							</div>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="Navbar">
+								<!-- regular link -->
+								<ul class="nav navbar-nav navbar-right">
+									<li class="dropdown active">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+											<i class="ti-home">
+												</i> Home
+											<span class="caret">
+												</span>
+										</a>
+										<ul class="dropdown-menu" role="menu">
+											<li>
+												<a href=" {% static 'index-map.html' %} ">
+														With map
+													</a>
+											</li>
+											<li>
+												<a href=" {% static 'index.html' %} ">
+														Carousel slider
+													</a>
+											</li>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+											<i class=" ti-clipboard">
+												</i> Pages
+											<span class="caret">
+												</span>
+										</a>
+										<ul class="dropdown-menu" role="menu">
+											<li>
+												<a href="{% url 'agent_profile' %}">
+														Agent Profile
+													</a>
+											</li>
+											<li>
+												<a href="{% url 'results' %}">
+														Search Results
+													</a>
+											</li>
+											<li>
+												<a href="{% url 'results_grid' %}">
+														Results options
+													</a>
+											</li>
+											<li>
+												<a href="{% url 'details' %}">
+														Property Details
+													</a>
+											</li>
+											<li>
+												<a href="{% url 'search_users' %}">Search Users</a>
+											</li>
+											<li>
+												<a href="{% url 'submit' %}">
+														Sumbit Property
+													</a>
+											</li>
+											<li>
+												<a href="{% url 'pricing' %}">
+														Pricing
+													</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="{% url 'results' %}">
+											<i class=" ti-list-ol">
+												</i> Categories
+										</a>
+									</li>
+									<li>
+										<a href="{% url 'contact' %}">
+											<i class="ti-email">
+												</i> Contact
+										</a>
+									</li>
+								</ul>
+							</div>
+						</nav>
+					</div>
+				</div>
+				<!-- /.div nav wrap holder -->
+			</div>
+			<!-- /#nav wrap -->
+		</header>
+		<!-- end: Header -->
+		<!-- SLIDER -->
+		{% comment %} <div class="carousel-wrap">
+
+			<div id="rev_slider_108_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="food-carousel80" style="margin:0px auto;padding:0px;margin-top:0px;margin-bottom:0px;background-color:#222">
+				<!-- START REVOLUTION SLIDER 5.0.7 fullwidth mode -->
+				<div id="rev_slider_108_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
+					<ul>
+						<!-- SLIDE  -->
+						<li data-index="rs-1" data-transition="fade" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="images/home-8.jpg" data-rotate="0" data-saveperformance="off" data-param1="1B Alexander Court, Lewisham, Tas 7173" data-param2="$45,499" data-description="">
+							<!-- MAIN IMAGE -->
+							<img src=" {% static 'images/home-8.jpg' %} " alt="" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+							<!-- LAYERS -->
+							<!-- LAYER NR. 1 -->
+							<div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" id="slide-309-layer-11" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['0','0','0','0']" data-width="full" data-height="['400','400','400','550']" data-whitespace="nowrap" data-transform_idle="o:1;" data-style_hover="cursor:default;" data-transform_in="opacity:0;s:1500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:1000;s:1000;" data-start="0" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 5;background-color:rgba(0, 0, 0, 0.50);border-color:rgba(0, 0, 0, 0);background:linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.45) 100%);">
+							</div>
+							<!-- LAYER NR. 2 -->
+							<div class="tp-caption NotGeneric-Title  tp-resizeme rs-parallaxlevel-1" id="slide-311-layer-1" data-x="['left','left','left','left']" data-hoffset="['50','50','30','17']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['110','110','180','160']" data-fontsize="['70','60','40','30']" data-lineheight="['70','60','40','30']" data-width="['none','none','none','400']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','normal']" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="300" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" style="z-index: 6; white-space: nowrap;">Luxury Villa
+							</div>
+							<!-- LAYER NR. 3 -->
+							<div class="tp-caption BigBold-SubTitle   rs-parallaxlevel-0" id="slide-309-layer-3" data-x="['left','left','left','left']" data-hoffset="['55','55','33','20']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['40','1','74','58']" data-fontsize="['15','15','15','13']" data-lineheight="['24','24','24','20']" data-width="['410','410','410','280']" data-height="['60','100','100','100']" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 7; min-width: 410px; max-width: 410px; max-width: 60px; max-width: 60px; white-space: normal;color:#fff">Auction Unless Sold Prior.Caringbah South, address available on request
+							</div>
+							<!-- LAYER NR. 4 -->
+							<div class="tp-caption BigBold-Button rev-btn  rs-parallaxlevel-0" id="slide-309-layer-4" data-x="['left','left','left','left']" data-hoffset="['480','480','30','20']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','30','20']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"scrollbelow","offset":"px"}]' data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 8; white-space: nowrap;border-color:rgba(255, 255, 255, 0.25);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">$50,500
+							</div>
+							<!-- LAYER NR. 5 -->
+							<div class="tp-caption BigBold-Button rev-btn  rs-parallaxlevel-0" id="slide-309-layer-5" data-x="['left','left','left','left']" data-hoffset="['676','676','226','216']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','30','20']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]' data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 9; white-space: nowrap;padding:15px 20px 15px 20px;border-color:rgba(255, 255, 255, 0.25);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"><i class="ti-angle-right"></i>
+							</div>
+						</li>
+						<!-- SLIDE  -->
+						<!-- SLIDE  -->
+						<li data-index="rs-2" data-transition="fade" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="images/home-11.jpg" data-rotate="0" data-saveperformance="off" data-param1="1B Alexander Court, Lewisham, Tas 7173" data-param2="$22,199" data-description="">
+							<!-- MAIN IMAGE -->
+							<img src=" {% static 'images/home-11.jpg' %} " alt="" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+							<!-- LAYERS -->
+							<!-- LAYER NR. 1 -->
+							<div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" id="slide-309-layer-15" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['0','0','0','0']" data-width="full" data-height="['400','400','400','550']" data-whitespace="nowrap" data-transform_idle="o:1;" data-style_hover="cursor:default;" data-transform_in="opacity:0;s:1500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:1000;s:1000;" data-start="0" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 5;background-color:rgba(0, 0, 0, 0.50);border-color:rgba(0, 0, 0, 0);background:linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.45) 100%);">
+							</div>
+							<!-- LAYER NR. 2 -->
+							<div class="tp-caption NotGeneric-Title  tp-resizeme rs-parallaxlevel-1" id="slide-310-layer-16" data-x="['left','left','left','left']" data-hoffset="['50','50','30','17']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['110','110','180','160']" data-fontsize="['60','50','30','20']" data-lineheight="['70','60','40','30']" data-width="['none','none','none','400']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','normal']" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="300" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" style="z-index: 6; white-space: nowrap;">Mavis Apartments
+							</div>
+							<!-- LAYER NR. 3 -->
+							<div class="tp-caption BigBold-SubTitle   rs-parallaxlevel-0" id="slide-309-layer-17" data-x="['left','left','left','left']" data-hoffset="['55','55','33','20']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['40','1','74','58']" data-fontsize="['15','15','15','13']" data-lineheight="['24','24','24','20']" data-width="['410','410','410','280']" data-height="['60','100','100','100']" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 7; min-width: 410px; max-width: 410px; max-width: 60px; max-width: 60px; white-space: normal;color:#fff">Auction Unless Sold Prior.Caringbah South, address available on request
+							</div>
+							<!-- LAYER NR. 4 -->
+							<div class="tp-caption BigBold-Button rev-btn  rs-parallaxlevel-0" id="slide-309-layer-18" data-x="['left','left','left','left']" data-hoffset="['480','480','30','20']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','30','20']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"scrollbelow","offset":"px"}]' data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 8; white-space: nowrap;border-color:rgba(255, 255, 255, 0.25);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">READ MORE
+							</div>
+							<!-- LAYER NR. 5 -->
+							<div class="tp-caption BigBold-Button rev-btn  rs-parallaxlevel-0" id="slide-309-layer-19" data-x="['left','left','left','left']" data-hoffset="['676','676','226','216']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','30','20']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]' data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 9; white-space: nowrap;padding:15px 20px 15px 20px;border-color:rgba(255, 255, 255, 0.25);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"><i class="ti-angle-right"></i>
+							</div>
+						</li>
+						<!-- SLIDE  -->
+						<!-- SLIDE  -->
+						<li data-index="rs-3" data-transition="fade" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="images/home-12.jpg" data-rotate="0" data-saveperformance="off" data-param1="Apricot West Britford Arch LuxRealty" data-param2="$84,500" data-description="">
+							<!-- MAIN IMAGE -->
+							<img src=" {% static 'images/home-12.jpg' %} " alt="" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+							<!-- LAYERS -->
+							<!-- LAYER NR. 1 -->
+							<div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" id="slide-309-layer-20" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['0','0','0','0']" data-width="full" data-height="['400','400','400','550']" data-whitespace="nowrap" data-transform_idle="o:1;" data-style_hover="cursor:default;" data-transform_in="opacity:0;s:1500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:1000;s:1000;" data-start="0" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 5;background-color:rgba(0, 0, 0, 0.50);border-color:rgba(0, 0, 0, 0);background:linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.45) 100%);">
+							</div>
+							<!-- LAYER NR. 2 -->
+							<div class="tp-caption NotGeneric-Title  tp-resizeme rs-parallaxlevel-1" id="slide-309-layer-21" data-x="['left','left','left','left']" data-hoffset="['50','50','30','17']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['110','110','180','160']" data-fontsize="['70','60','40','30']" data-lineheight="['70','60','40','30']" data-width="['none','none','none','400']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','normal']" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="300" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" style="z-index: 6; white-space: nowrap;">Luxury Villa
+							</div>
+							<!-- LAYER NR. 3 -->
+							<div class="tp-caption BigBold-SubTitle   rs-parallaxlevel-0" id="slide-309-layer-22" data-x="['left','left','left','left']" data-hoffset="['55','55','33','20']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['40','1','74','58']" data-fontsize="['15','15','15','13']" data-lineheight="['24','24','24','20']" data-width="['410','410','410','280']" data-height="['60','100','100','100']" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 7; min-width: 410px; max-width: 410px; max-width: 60px; max-width: 60px; white-space: normal;color:#fff">Auction Unless Sold Prior.Caringbah South, address available on request
+							</div>
+							<!-- LAYER NR. 4 -->
+							<div class="tp-caption BigBold-Button rev-btn  rs-parallaxlevel-0" id="slide-309-layer-23" data-x="['left','left','left','left']" data-hoffset="['480','480','30','20']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','30','20']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"scrollbelow","offset":"px"}]' data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 8; white-space: nowrap;border-color:rgba(255, 255, 255, 0.25);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">READ MORE
+							</div>
+							<!-- LAYER NR. 5 -->
+							<div class="tp-caption BigBold-Button rev-btn  rs-parallaxlevel-0" id="slide-309-layer-24" data-x="['left','left','left','left']" data-hoffset="['676','676','226','216']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','30','20']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]' data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 9; white-space: nowrap;padding:15px 20px 15px 20px;border-color:rgba(255, 255, 255, 0.25);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"><i class="ti-angle-right"></i>
+							</div>
+						</li>
+						<!-- SLIDE  -->
+						<!-- SLIDE  -->
+						<li data-index="rs-4" data-transition="fade" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="images/home-9.jpg" data-rotate="0" data-saveperformance="off" data-param1="Low price - Apricot West Britford Arch" data-param2="$32,100" data-description="">
+							<!-- MAIN IMAGE -->
+							<img src=" {% static 'images/home-9.jpg' %} " alt="" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+							<!-- LAYERS -->
+							<!-- LAYER NR. 1 -->
+							<div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" id="slide-309-layer-25" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['0','0','0','0']" data-width="full" data-height="['400','400','400','550']" data-whitespace="nowrap" data-transform_idle="o:1;" data-style_hover="cursor:default;" data-transform_in="opacity:0;s:1500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:1000;s:1000;" data-start="0" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 5;background-color:rgba(0, 0, 0, 0.50);border-color:rgba(0, 0, 0, 0);background:linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.45) 100%);">
+							</div>
+							<!-- LAYER NR. 2 -->
+							<div class="tp-caption NotGeneric-Title  tp-resizeme rs-parallaxlevel-1" id="slide-309-layer-26" data-x="['left','left','left','left']" data-hoffset="['50','50','30','17']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['110','110','180','160']" data-fontsize="['70','60','40','30']" data-lineheight="['70','60','40','30']" data-width="['none','none','none','400']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','normal']" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="300" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" style="z-index: 6; white-space: nowrap;">Luxury Villa
+							</div>
+							<!-- LAYER NR. 3 -->
+							<div class="tp-caption BigBold-SubTitle   rs-parallaxlevel-0" id="slide-309-layer-27" data-x="['left','left','left','left']" data-hoffset="['55','55','33','20']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['40','1','74','58']" data-fontsize="['15','15','15','13']" data-lineheight="['24','24','24','20']" data-width="['410','410','410','280']" data-height="['60','100','100','100']" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 7; min-width: 410px; max-width: 410px; max-width: 60px; max-width: 60px; white-space: normal;color:#fff">Auction Unless Sold Prior.Caringbah South, address available on request
+							</div>
+							<!-- LAYER NR. 4 -->
+							<div class="tp-caption BigBold-Button rev-btn  rs-parallaxlevel-0" id="slide-309-layer-28" data-x="['left','left','left','left']" data-hoffset="['480','480','30','20']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','30','20']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"scrollbelow","offset":"px"}]' data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 8; white-space: nowrap;border-color:rgba(255, 255, 255, 0.25);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">READ MORE
+							</div>
+							<!-- LAYER NR. 5 -->
+							<div class="tp-caption BigBold-Button rev-btn  rs-parallaxlevel-0" id="slide-309-layer-29" data-x="['left','left','left','left']" data-hoffset="['676','676','226','216']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','30','20']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]' data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 9; white-space: nowrap;padding:15px 20px 15px 20px;border-color:rgba(255, 255, 255, 0.25);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"><i class="ti-angle-right"></i>
+							</div>
+						</li>
+						<!-- SLIDE  -->
+						<!-- SLIDE  -->
+						<li data-index="rs-5" data-transition="fade" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="images/home-7.jpg" data-rotate="0" data-saveperformance="off" data-param1="Final offer Apricot West Britford Arch" data-param2="$60,900" data-description="">
+							<!-- MAIN IMAGE -->
+							<img src=" {% static 'images/home-7.jpg' %} " alt="" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+							<!-- LAYERS -->
+							<!-- LAYER NR. 1 -->
+							<div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" id="slide-309-layer-30" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['0','0','0','0']" data-width="full" data-height="['400','400','400','550']" data-whitespace="nowrap" data-transform_idle="o:1;" data-style_hover="cursor:default;" data-transform_in="opacity:0;s:1500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:1000;s:1000;" data-start="0" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 5;background-color:rgba(0, 0, 0, 0.50);border-color:rgba(0, 0, 0, 0);background:linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.45) 100%);">
+							</div>
+							<!-- LAYER NR. 2 -->
+							<div class="tp-caption NotGeneric-Title  tp-resizeme rs-parallaxlevel-1" id="slide-309-layer-31" data-x="['left','left','left','left']" data-hoffset="['50','50','30','17']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['110','110','180','160']" data-fontsize="['70','60','40','30']" data-lineheight="['70','60','40','30']" data-width="['none','none','none','400']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','normal']" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="300" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" style="z-index: 6; white-space: nowrap;">Luxury Villa
+							</div>
+							<!-- LAYER NR. 3 -->
+							<div class="tp-caption BigBold-SubTitle   rs-parallaxlevel-0" id="slide-309-layer-32" data-x="['left','left','left','left']" data-hoffset="['55','55','33','20']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['40','1','74','58']" data-fontsize="['15','15','15','13']" data-lineheight="['24','24','24','20']" data-width="['410','410','410','280']" data-height="['60','100','100','100']" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 7; min-width: 410px; max-width: 410px; max-width: 60px; max-width: 60px; white-space: normal;color:#fff">Auction Unless Sold Prior.Caringbah South, address available on request
+							</div>
+							<!-- LAYER NR. 4 -->
+							<div class="tp-caption BigBold-Button rev-btn  rs-parallaxlevel-0" id="slide-309-layer-33" data-x="['left','left','left','left']" data-hoffset="['480','480','30','20']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','30','20']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"scrollbelow","offset":"px"}]' data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 8; white-space: nowrap;border-color:rgba(255, 255, 255, 0.25);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">READ MORE
+							</div>
+							<!-- LAYER NR. 5 -->
+							<div class="tp-caption BigBold-Button rev-btn  rs-parallaxlevel-0" id="slide-309-layer-34" data-x="['left','left','left','left']" data-hoffset="['676','676','226','216']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','30','20']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]' data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 9; white-space: nowrap;padding:15px 20px 15px 20px;border-color:rgba(255, 255, 255, 0.25);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"><i class="ti-angle-right"></i>
+							</div>
+						</li>
+						<!-- SLIDE  -->
+						<!-- SLIDE  -->
+						<li data-index="rs-6" data-transition="fade" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="images/home-2.jpg" data-rotate="0" data-saveperformance="off" data-param1="1B Alexander Court, Lewisham, Tas 7173" data-param2="$45,499" data-description="">
+							<!-- MAIN IMAGE -->
+							<img src=" {% static 'images/home-2.jpg' %} " alt="" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+							<!-- LAYERS -->
+							<!-- LAYER NR. 1 -->
+							<div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" id="slide-309-layer-35" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['0','0','0','0']" data-width="full" data-height="['400','400','400','550']" data-whitespace="nowrap" data-transform_idle="o:1;" data-style_hover="cursor:default;" data-transform_in="opacity:0;s:1500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:1000;s:1000;" data-start="0" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 5;background-color:rgba(0, 0, 0, 0.50);border-color:rgba(0, 0, 0, 0);background:linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.45) 100%);">
+							</div>
+							<!-- LAYER NR. 2 -->
+							<div class="tp-caption NotGeneric-Title  tp-resizeme rs-parallaxlevel-1" id="slide-309-layer-36" data-x="['left','left','left','left']" data-hoffset="['50','50','30','17']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['110','110','180','160']" data-fontsize="['70','60','40','30']" data-lineheight="['70','60','40','30']" data-width="['none','none','none','400']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','normal']" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="300" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" style="z-index: 6; white-space: nowrap;">Luxury Villa
+							</div>
+							<!-- LAYER NR. 3 -->
+							<div class="tp-caption BigBold-SubTitle   rs-parallaxlevel-0" id="slide-309-layer-37" data-x="['left','left','left','left']" data-hoffset="['55','55','33','20']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['40','1','74','58']" data-fontsize="['15','15','15','13']" data-lineheight="['24','24','24','20']" data-width="['410','410','410','280']" data-height="['60','100','100','100']" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 7; min-width: 410px; max-width: 410px; max-width: 60px; max-width: 60px; white-space: normal;color:#fff">Auction Unless Sold Prior.Caringbah South, address available on request
+							</div>
+							<!-- LAYER NR. 4 -->
+							<div class="tp-caption BigBold-Button rev-btn  rs-parallaxlevel-0" id="slide-309-layer-38" data-x="['left','left','left','left']" data-hoffset="['480','480','30','20']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','30','20']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"scrollbelow","offset":"px"}]' data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 8; white-space: nowrap;border-color:rgba(255, 255, 255, 0.25);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">READ MORE
+							</div>
+							<!-- LAYER NR. 5 -->
+							<div class="tp-caption BigBold-Button rev-btn  rs-parallaxlevel-0" id="slide-309-layer-39" data-x="['left','left','left','left']" data-hoffset="['676','676','226','216']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','30','20']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]' data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 9; white-space: nowrap;padding:15px 20px 15px 20px;border-color:rgba(255, 255, 255, 0.25);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"><i class="ti-angle-right"></i>
+							</div>
+						</li>
+						<!-- SLIDE  -->
+						<!-- SLIDE  -->
+						<li data-index="rs-7" data-transition="fade" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="images/home-3.jpg" data-rotate="0" data-saveperformance="off" data-param1="Lewisham, Tas 7173 Uraban minimalist house" data-param2="$35,999" data-description="">
+							<!-- MAIN IMAGE -->
+							<img src=" {% static 'images/home-3.jpg' %} " alt="" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+							<!-- LAYERS -->
+							<!-- LAYER NR. 1 -->
+							<div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" id="slide-309-layer-40" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['0','0','0','0']" data-width="full" data-height="['400','400','400','550']" data-whitespace="nowrap" data-transform_idle="o:1;" data-style_hover="cursor:default;" data-transform_in="opacity:0;s:1500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:1000;s:1000;" data-start="0" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 5;background-color:rgba(0, 0, 0, 0.50);border-color:rgba(0, 0, 0, 0);background:linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.45) 100%);">
+							</div>
+							<!-- LAYER NR. 2 -->
+							<div class="tp-caption NotGeneric-Title  tp-resizeme rs-parallaxlevel-1" id="slide-309-layer-41" data-x="['left','left','left','left']" data-hoffset="['50','50','30','17']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['110','110','180','160']" data-fontsize="['70','60','40','30']" data-lineheight="['70','60','40','30']" data-width="['none','none','none','400']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','normal']" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="300" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" style="z-index: 6; white-space: nowrap;">Luxury Villa
+							</div>
+							<!-- LAYER NR. 3 -->
+							<div class="tp-caption BigBold-SubTitle   rs-parallaxlevel-0" id="slide-309-layer-42" data-x="['left','left','left','left']" data-hoffset="['55','55','33','20']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['40','1','74','58']" data-fontsize="['15','15','15','13']" data-lineheight="['24','24','24','20']" data-width="['410','410','410','280']" data-height="['60','100','100','100']" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 7; min-width: 410px; max-width: 410px; max-width: 60px; max-width: 60px; white-space: normal;color:#fff">Auction Unless Sold Prior.Caringbah South, address available on request
+							</div>
+							<!-- LAYER NR. 4 -->
+							<div class="tp-caption BigBold-Button rev-btn  rs-parallaxlevel-0" id="slide-309-layer-43" data-x="['left','left','left','left']" data-hoffset="['480','480','30','20']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','30','20']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"scrollbelow","offset":"px"}]' data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 8; white-space: nowrap;border-color:rgba(255, 255, 255, 0.25);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">READ MORE
+							</div>
+							<!-- LAYER NR. 5 -->
+							<div class="tp-caption BigBold-Button rev-btn  rs-parallaxlevel-0" id="slide-309-layer-44" data-x="['left','left','left','left']" data-hoffset="['676','676','226','216']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','30','20']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]' data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 9; white-space: nowrap;padding:15px 20px 15px 20px;border-color:rgba(255, 255, 255, 0.25);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"><i class="ti-angle-right"></i>
+							</div>
+						</li>
+						<!-- SLIDE  -->
+						<!-- SLIDE  -->
+						<li data-index="rs-8" data-transition="fade" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="images/home-4.jpg" data-rotate="0" data-saveperformance="off" data-param1="1B Alexander Court, Lewisham, Tas 7173" data-param2="$50,500" data-description="">
+							<!-- MAIN IMAGE -->
+							<img src=" {% static 'images/home-4.jpg' %} " alt="" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+							<!-- LAYERS -->
+							<!-- LAYER NR. 1 -->
+							<div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" id="slide-309-layer-45" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['0','0','0','0']" data-width="full" data-height="['400','400','400','550']" data-whitespace="nowrap" data-transform_idle="o:1;" data-style_hover="cursor:default;" data-transform_in="opacity:0;s:1500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:1000;s:1000;" data-start="0" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 5;background-color:rgba(0, 0, 0, 0.50);border-color:rgba(0, 0, 0, 0);background:linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.45) 100%);">
+							</div>
+							<!-- LAYER NR. 2 -->
+							<div class="tp-caption NotGeneric-Title  tp-resizeme rs-parallaxlevel-1" id="slide-309-layer-46" data-x="['left','left','left','left']" data-hoffset="['50','50','30','17']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['110','110','180','160']" data-fontsize="['70','60','40','30']" data-lineheight="['70','60','40','30']" data-width="['none','none','none','400']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','normal']" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="300" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" style="z-index: 6; white-space: nowrap;">Luxury Villa
+							</div>
+							<!-- LAYER NR. 3 -->
+							<div class="tp-caption BigBold-SubTitle   rs-parallaxlevel-0" id="slide-309-layer-47" data-x="['left','left','left','left']" data-hoffset="['55','55','33','20']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['40','1','74','58']" data-fontsize="['15','15','15','13']" data-lineheight="['24','24','24','20']" data-width="['410','410','410','280']" data-height="['60','100','100','100']" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 7; min-width: 410px; max-width: 410px; max-width: 60px; max-width: 60px; white-space: normal;color:#fff">Auction Unless Sold Prior.Caringbah South, address available on request
+							</div>
+							<!-- LAYER NR. 4 -->
+							<div class="tp-caption BigBold-Button rev-btn  rs-parallaxlevel-0" id="slide-309-layer-48" data-x="['left','left','left','left']" data-hoffset="['480','480','30','20']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','30','20']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"scrollbelow","offset":"px"}]' data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 8; white-space: nowrap;border-color:rgba(255, 255, 255, 0.25);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">READ MORE
+							</div>
+							<!-- LAYER NR. 5 -->
+							<div class="tp-caption BigBold-Button rev-btn  rs-parallaxlevel-0" id="slide-309-layer-49" data-x="['left','left','left','left']" data-hoffset="['676','676','226','216']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','30','20']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]' data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 9; white-space: nowrap;padding:15px 20px 15px 20px;border-color:rgba(255, 255, 255, 0.25);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"><i class="ti-angle-right"></i>
+							</div>
+						</li>
+						<!-- SLIDE  -->
+						<!-- SLIDE  -->
+						<li data-index="rs-9" data-transition="fade" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="images/home-5.jpg" data-rotate="0" data-saveperformance="off" data-param1="Apricot West Britford Arch 1B Alexander Court" data-param2="$87,300" data-description="">
+							<!-- MAIN IMAGE -->
+							<img src=" {% static 'images/home-5.jpg' %} " alt="" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+							<!-- LAYERS -->
+							<!-- LAYER NR. 1 -->
+							<div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" id="slide-309-layer-50" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['0','0','0','0']" data-width="full" data-height="['400','400','400','550']" data-whitespace="nowrap" data-transform_idle="o:1;" data-style_hover="cursor:default;" data-transform_in="opacity:0;s:1500;e:Power2.easeInOut;" data-transform_out="opacity:0;s:1000;s:1000;" data-start="0" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 5;background-color:rgba(0, 0, 0, 0.50);border-color:rgba(0, 0, 0, 0);background:linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.45) 100%);">
+							</div>
+							<!-- LAYER NR. 2 -->
+							<div class="tp-caption NotGeneric-Title  tp-resizeme rs-parallaxlevel-1" id="slide-309-layer-51" data-x="['left','left','left','left']" data-hoffset="['50','50','30','17']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['110','110','180','160']" data-fontsize="['70','60','40','30']" data-lineheight="['70','60','40','30']" data-width="['none','none','none','400']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','normal']" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="300" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" style="z-index: 6; white-space: nowrap;">Luxury Villa
+							</div>
+							<!-- LAYER NR. 3 -->
+							<div class="tp-caption BigBold-SubTitle   rs-parallaxlevel-0" id="slide-309-layer-52" data-x="['left','left','left','left']" data-hoffset="['55','55','33','20']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['40','1','74','58']" data-fontsize="['15','15','15','13']" data-lineheight="['24','24','24','20']" data-width="['410','410','410','280']" data-height="['60','100','100','100']" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 7; min-width: 410px; max-width: 410px; max-width: 60px; max-width: 60px; white-space: normal;color:#fff">Auction Unless Sold Prior.Caringbah South, address available on request
+							</div>
+							<!-- LAYER NR. 4 -->
+							<div class="tp-caption BigBold-Button rev-btn  rs-parallaxlevel-0" id="slide-309-layer-53" data-x="['left','left','left','left']" data-hoffset="['480','480','30','20']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','30','20']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"scrollbelow","offset":"px"}]' data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 8; white-space: nowrap;border-color:rgba(255, 255, 255, 0.25);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">READ MORE
+							</div>
+							<!-- LAYER NR. 5 -->
+							<div class="tp-caption BigBold-Button rev-btn  rs-parallaxlevel-0" id="slide-309-layer-54" data-x="['left','left','left','left']" data-hoffset="['676','676','226','216']" data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','30','20']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:50px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="650" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]' data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 9; white-space: nowrap;padding:15px 20px 15px 20px;border-color:rgba(255, 255, 255, 0.25);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"><i class="ti-angle-right"></i>
+							</div>
+						</li>
+						<!-- SLIDE  -->
+					</ul>
+					<div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
+				</div>
+			</div>
+		</div> {% endcomment %}
+		{% block messages %}
+		{% endblock messages %}
+		
+		{% block context1 %}
+		{% endblock context1 %}
+
+<section class="contact">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<h2 class="section-heading">Contact Us</h2>
+						<h3 class="section-subheading text-muted">1225 Howard St, San Francisco, 91222, CA.</h3>
+						<a href="#" class="btn btn-lg btn-raised ripple-effect btn-danger ">Send Message <i class="fa fa-chevron-right"></i></a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="cta-box clearfix">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 col-sm-3 col-xs-12 pull-right">
+						<a href="#" class="btn btn-raised btn-danger ripple-effect btn-lg js-open-modal-left" data-original-title="" title="" data-em-selector="#ajaxModal" data-em-position="left" data-em-push-content="true" data-em-css="custom-class" data-em-keyboard="false" data-em-backdrop="static">
+							<i class="ti-shopping-cart">
+					</i> &nbsp; Sumbit Property
+						</a>
+					</div>
+					<div class="col-md-9 col-sm-9 col-xs-12">
+						<h3>
+					Welcome to LuxRealty. Responsive Real Estate template
+				</h3>
+						<p>
+							Carefully designed to bring you the best performance, usage and customization experience!
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- FOOTER -->
+		<footer id="footer">
+			<div class="container">
+				<div class="col-sm-3">
+					<img src=" {% static 'images/logo-1.png' %} " alt="#" class="img-responsive logo">
+					<p>
+						Lux Realty,property theme &amp; publishing,with minimal design. We provide you with the latest fresh inspiration straight from the industrie.
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<h5>
+				COMMON TAGS
+			</h5>
+					<ul class="tags">
+						<li>
+							<a href="#" class="tag">
+						For Rent
+					</a>
+						</li>
+						<li>
+							<a href="#" class="tag">
+						For Sale
+					</a>
+						</li>
+						<li>
+							<a href="#" class="tag">
+						Sumbit property
+					</a>
+						</li>
+						<li>
+							<a href="#" class="tag">
+						Auctions 
+					</a>
+						</li>
+						<li>
+							<a href="#" class="tag">
+						Find agent
+					</a>
+						</li>
+						<li>
+							<a href="#" class="tag">
+						Find agency
+					</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-2">
+					<h5>
+				CATEGORIES
+			</h5>
+					<ul class="list-unstyled">
+						<li>
+							<a href="#">
+						For Rent
+					</a>
+						</li>
+						<li>
+							<a href="#">
+						For Sale
+					</a>
+						</li>
+						<li>
+							<a href="#">
+						Sumbit listing
+					</a>
+						</li>
+						<li>
+							<a href="#">
+						Auctions 
+					</a>
+						</li>
+						<li>
+							<a href="#">
+						Find agent
+					</a>
+						</li>
+						<li>
+							<a href="#">
+						Find agency
+					</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-2">
+					<h5>
+				ABOUT US
+			</h5>
+					<ul class="list-unstyled">
+						<li>
+							Available Jobs
+						</li>
+						<li>
+							Sumbit property
+						</li>
+						<li>
+							Contact Us
+						</li>
+						<li>
+							History
+						</li>
+						<li>
+							Impressium
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-2">
+					<h5>
+				ABOUT US
+			</h5>
+					<ul class="list-unstyled">
+						<li>
+							Available Jobs
+						</li>
+						<li>
+							Contact Us
+						</li>
+						<li>
+							History
+						</li>
+						<li>
+							Impressium
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="btmFooter">
+				<div class="container">
+					<div class="col-sm-7">
+						<p>
+							<strong>
+						Copyright 2015 
+					</strong> LuxRealty- real estate template made with
+							<i class="ti-heart">
+					</i>
+							<strong>
+						by Codenpixel
+					</strong>
+						</p>
+					</div>
+					<div class="col-sm-5">
+						<ul class="pay-opt pull-right list-inline list-unstyled">
+							<li>
+								<a href="#" title="#">
+									<img src=" {% static 'images/amz-icon.png' %} " class="img-responsive" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="#" title="#">
+									<img src=" {% static 'images/paypal-icon.png' %} " class="img-responsive" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="#" title="#">
+									<img src=" {% static 'images/ax-icon.png' %} " class="img-responsive" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="#" title="#">
+									<img src=" {% static 'images/mb-icon.png' %} " class="img-responsive" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="#" title="#">
+									<img src=" {% static 'images/mst-icon.png' %} " class="img-responsive" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="#" title="#">
+									<img src=" {% static 'images/mstr-icon.png' %} " class="img-responsive" alt="">
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- MODAL -->
+		<div class="modal fade" id="ajaxModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+							</button>
+							<h4 class="modal-title">Quick Property Sumbit</h4>
+						</div>
+						<form class="form-horizontal" method="post" action="">
+							{% csrf_token %}
+							<fieldset>
+								<!-- Select Basic -->
+								<div class="form-group">
+									<label class="col-md-4 control-label" for="selectbasic">Property Type :</label>
+									<div class="col-md-8">
+										<select id="selectbasic" name="type" class="form-control">
+											<option default value="Apartmant">Apartmant</option>
+											<option value="House">House</option>
+											<option value="Villa">Villa</option>
+										</select>
+									</div>
+								</div>
+								<!-- Multiple Radios -->
+								<div class="form-group">
+									<label class="col-md-4 control-label">Listing Type :</label>
+									<div class="col-md-8">
+										<div class="radio">
+											<label for="radios-0" name="listing_type">
+												<input type="radio" name="listing_type" id="radios-0" value="Sale" checked="checked">Sale
+											</label>
+										</div>
+										<div class="radio">
+											<label name="listing_type">
+												<input type="radio" name="listing_type" id="radios-1" value="Rent">Rent
+											</label>
+										</div>
+									</div>
+								</div>
+								<!-- Text input-->
+								<div class="form-group">
+									<label class="col-md-4 control-label" for="textinput">Listing Title</label>
+									<div class="col-md-8">
+										<input id="textinput" name="title" type="text" placeholder="Name your listing" class="form-control input-md" required="">
+									</div>
+								</div>
+								<!-- Text input-->
+								<div class="form-group">
+									<label class="col-md-4 control-label" for="textinput">Bedrooms :</label>
+									<div class="col-md-8">
+										<input id="textinput2" name="bedrooms" type="text" placeholder="" class="form-control input-md">
+									</div>
+								</div>
+								<!-- Text input-->
+								<div class="form-group">
+									<label class="col-md-4 control-label" for="textinput">Bathrooms :</label>
+									<div class="col-md-8">
+										<input id="textinput3" name="bathrooms" type="text" placeholder="" class="form-control input-md">
+									</div>
+								</div>
+								<!-- Text input-->
+								<div class="form-group">
+									<label class="col-md-4 control-label" for="textinput">Floor Number :</label>
+									<div class="col-md-8">
+										<input id="textinput4" name="floor_number" type="text" placeholder="" class="form-control input-md">
+									</div>
+								</div>
+								<!-- Text input-->
+								<div class="form-group">
+									<label class="col-md-4 control-label" for="textinput">Built Up Area :</label>
+									<div class="col-md-8">
+										<input id="textinput5" name="area" type="text" placeholder="" class="form-control input-md">
+									</div>
+								</div>
+								<!-- Text input-->
+								<div class="form-group">
+									<label class="col-md-4 control-label" for="textinput">Built Year :</label>
+									<div class="col-md-8">
+										<input id="textinput6" name="built_up_year" type="text" placeholder="" class="form-control input-md">
+									</div>
+								</div>
+								<!-- Select Basic -->
+								<div class="form-group">
+									<label class="col-md-4 control-label" for="selectbasic">Country :</label>
+									<div class="col-md-8">
+										<input id="textinput6" name="country" type="text" placeholder="" class="form-control input-md">
+									</div>
+								</div>
+								<!-- Select Basic -->
+								<div class="form-group">
+									<label class="col-md-4 control-label" for="selectbasic">State :</label>
+									<div class="col-md-8">
+										<input id="textinput6" name="state" type="text" placeholder="" class="form-control input-md">
+									</div>
+								</div>
+								<!-- Select Basic -->
+								<div class="form-group">
+									<label class="col-md-4 control-label" for="selectbasic">City :</label>
+									<div class="col-md-8">
+										<input id="textinput6" name="city" type="text" placeholder="" class="form-control input-md">
+									</div>
+								</div>
+								<!-- Select Basic -->
+								<div class="form-group">
+									<label class="col-md-4 control-label" for="selectbasic">Block Address :</label>
+									<div class="col-md-8">
+										<input id="textinput6" name="street_and_house_no" type="text" placeholder="" class="form-control input-md">
+									</div>
+								</div>
+								<!-- Text input-->
+								<div class="form-group">
+									<label class="col-md-4 control-label" for="textinput">ID :</label>
+									<div class="col-md-8">
+										<input id="textinput7" name="id" type="text" placeholder="" class="form-control input-md">
+									</div>
+								</div>
+								<!-- Text input-->
+								<div class="form-group">
+									<label class="col-md-4 control-label" for="textinput">Price :</label>
+									<div class="col-md-8">
+										<input id="textinput8" name="price" type="text" placeholder="" class="form-control input-md">
+									</div>
+								</div>
+								<!-- Text input-->
+								<div class="form-group">
+									<label class="col-md-4 control-label" for="textinput">Expiry Date :</label>
+									<div class="col-md-8">
+										<input id="date" name="expiry" type="date"  class="form-control input-md">
+									</div>
+								</div>
+								<!-- Textarea -->
+								<div class="form-group">
+									<label class="col-md-4 control-label">Property Description</label>
+									<div class="col-md-8">
+										<textarea class="form-control" id="textarea" name="description"></textarea>
+									</div>
+								</div>
+								<!-- Textarea -->
+								<div class="form-group">
+									<label class="col-md-4 control-label">Neighborhood</label>
+									<div class="col-md-8">
+										<textarea class="form-control" id="textarea" name="neigborhood"></textarea>
+									</div>
+								</div>
+								<!-- Multiple Checkboxes -->
+								<div class="form-group">
+									<label class="col-md-4 control-label">Select type</label>
+									<div class="col-md-8">
+										<div class="checkbox">
+											<label for="checkboxes-4">
+												<input type="checkbox" name="ad_price_type" id="checkboxes-4" value="Regular listing $5">Regular listing $5
+											</label>
+										</div>
+										<div class="checkbox">
+											<label for="checkboxes-5">
+												<input type="checkbox" name="ad_price_type" id="checkboxes-5" value="Featured listing $20">Featured listing $20
+											</label>
+										</div>
+									</div>
+								</div>
+								<!-- Button (Double) -->
+								<div class="form-group">
+									<label class="col-md-4 control-label"></label>
+									<div class="col-md-8">
+										<button id="button1id" name="button1id" class="btn btn-raised ripple-effect btn-success" type="submit">Sumbit</button> 
+										<button id="button2id" name="button2id" class="btn btn-raised ripple-effect btn-danger">Clear</button>
+									</div>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--/#wrapper -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script type="text/javascript" src=" {% static 'js/jquery.js' %} "></script>
+	<script src=" {% static 'js/bootstrap.min.js' %} "></script>
+	<script src=" {% static 'js/scripts.js' %} "></script>
+	<!-- REVOLUTION JS FILES -->
+	<script type="text/javascript" src=" {% static 'revolution/js/jquery.themepunch.tools.min.js' %} "></script>
+	<script type="text/javascript" src=" {% static 'revolution/js/jquery.themepunch.revolution.min.js' %} "></script>
+	<script src=" {% static 'js/init.js' %} "></script>
+	<script src="https://use.fontawesome.com/7f6a504c99.js"></script>
+
+	{% block js %}
+	{% endblock js %}
+</body>
+
+</html>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      
+<html class="no-js lt-ie9 lt-ie8 lt-ie7">
+<![endif]-->
+<!--[if IE 7]>         
+<html class="no-js lt-ie9 lt-ie8">
+<![endif]-->
+<!--[if IE 8]>         
+<html class="no-js lt-ie9">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="Codenpixel.com">
+	<link rel="icon" href=" {% static '../../favicon.ico' %} ">
+	<title>Bootstrap Real Estate template,material design</title>
+	<!-- Bootstrap core CSS -->
+	<link href=" {% static 'css/bootstrap.min.css' %} " rel="stylesheet">
+	<link href=" {% static 'css/bootstrap-extra-modal.css' %} " rel="stylesheet">
+	<link href=" {% static 'css/plugins.css' %} " rel="stylesheet">
+	<!-- Icons -->
+	<link href=" {% static 'css/themify-icons.css' %} " rel="stylesheet">
+	<link href=" {% static 'css/font-awesome.min.css' %} " rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,300italic,500,700,900' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Raleway:400,100,300,500,600,700,800,900,200' rel='stylesheet' type='text/css'>
+	<!-- RS5.0 Main Stylesheet -->
+	<link rel="stylesheet" type="text/css" href=" {% static 'revolution/css/settings.css' %} ">
+	<!-- RS5.0 Layers and Navigation Styles -->
+	<link rel="stylesheet" type="text/css" href=" {% static 'revolution/css/layers.css' %} ">
+	<link rel="stylesheet" type="text/css" href=" {% static 'revolution/css/navigation.css' %} ">
+	<!-- Custom styles for this template -->
+	<link href=" {% static 'css/style.css' %} " rel="stylesheet">
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+	<div class="loader"></div>
+	<div class="wrapper">
+		<!-- header -->
+		<header>
+			<div class="top-bar bg-light hdden-xs">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6 list-inline list-unstyled no-margin hidden-xs">
+							<p class="no-margin">
+								Have any questions?
+								<strong>
+										+080 124 880
+									</strong> or mail@codenpixel.com
+							</p>
+						</div>
+						<div class="col-sm-3 col-sm-offset-2">
+							<ul class="list-inline list-unstyled pull-right">
+								<li class="active">
+									<a href="#">
+										<i class="ti-cart">
+											</i> Faq
+									</a>
+								</li>
+								<li>
+									<a href="#">
+											Sign In
+										</a>
+								</li>
+								<li>
+									<a href="#">
+											Sign Up
+										</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-sm-1">
+							<button class="dropdown-toggle language pull-right" type="button" data-toggle="dropdown" aria-expanded="false">
+								<img src=" {% static 'images/us.png' %} " width="16" height="11" alt="EN Language">English <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu no-border-radius no-shadow">
+								<li>
+									<a href="#">
+										<img src=" {% static 'images/us.png' %} " width="16" height="11" alt="EN Language">[US] English
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src=" {% static 'images/de.png' %} " width="16" height="11" alt="DE Language">[DE] German
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src=" {% static 'images/fr.png' %} " width="16" height="11" alt="FR Language">[FR] French
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src=" {% static 'images/ru.png' %} " width="16" height="11" alt="RU Language">[RU] Russian
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="nav-wrap">
+				<div class="nav-wrap-holder">
+					<div class="container" id="nav_wrapper">
+						<nav class="navbar navbar-static-top nav-white">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Navbar">
+									<span class="sr-only">
+											Toggle navigation
+										</span>
+									<span class="icon-bar">
+										</span>
+									<span class="icon-bar">
+										</span>
+									<span class="icon-bar">
+										</span>
+								</button>
+								<a class="navbar-brand" href=" {% static 'index.html' %} ">
+									<img src=" {% static 'images/logo-dark.png' %} " alt="logo" class="img-responsive">
+								</a>
+							</div>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="Navbar">
+								<!-- regular link -->
+								<ul class="nav navbar-nav navbar-right">
+									<li class="dropdown active">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+											<i class="ti-home">
+												</i> Home
+											<span class="caret">
+												</span>
+										</a>
+										<ul class="dropdown-menu" role="menu">
+											<li>
+												<a href=" {% static 'index-map.html' %} ">
+														With map
+													</a>
+											</li>
+											<li>
+												<a href=" {% static 'index.html' %} ">
+														Carousel slider
+													</a>
+											</li>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+											<i class=" ti-clipboard">
+												</i> Pages
+											<span class="caret">
+												</span>
+										</a>
+										<ul class="dropdown-menu" role="menu">
+											<li>
+												<a href=" {% static 'agent_profile.html' %} ">
+														Agent Profile
+													</a>
+											</li>
+											<li>
+												<a href=" {% static 'results.html' %} ">
+														Search Results
+													</a>
+											</li>
+											<li>
+												<a href=" {% static 'results_grid.html' %} ">
+														Results options
+													</a>
+											</li>
+											<li>
+												<a href=" {% static 'details.html' %} ">
+														Property Details
+													</a>
+											</li>
+											<li>
+												<a href=" {% static 'search_users.html' %} ">Search Users</a>
+											</li>
+											<li>
+												<a href=" {% static 'sumbit.html' %} ">
+														Sumbit Property
+													</a>
+											</li>
+											<li>
+												<a href=" {% static 'pricing.html' %} ">
+														Pricing
+													</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href=" {% static 'results.html' %} ">
+											<i class=" ti-list-ol">
+												</i> Categories
+										</a>
+									</li>
+									<li>
+										<a href=" {% static 'contact.html' %} ">
+											<i class="ti-email">
+												</i> Contact
+										</a>
+									</li>
+								</ul>
+							</div>
+						</nav>
+					</div>
+				</div>
+				<!-- /.div nav wrap holder -->
+			</div>
+			<!-- /#nav wrap -->
+		</header>
+		<!-- end: Header -->
+		<section id="pricing" class="space-sm">
+			<div class="container">
+				<div class="row">
+					<h2 class="text-center">Simple &amp; Fair Pricing</h2>
+					<p class="lead text-center">Every plan comes with a 14-day free trial. Upgrade or cancel at any time.</p>
+					<div class="col-sm-6 col-md-4 col-md-offset-2">
+						<div class="panel panel-default text-center">
+							<div class="panel-heading">
+								<h4>Starter</h4>
+								<p class="price text-primary">
+									<small>$</small>95<small class="text-muted">/month</small>
+								</p>
+							</div>
+							<ul class="list-group">
+								<li class="list-group-item text-muted">Ideal for Level 3 and Level 4 Merchants</li>
+								<li class="list-group-item"><em>1</em> PCI Workbook</li>
+								<li class="list-group-item"><em>2</em> Users</li>
+								<li class="list-group-item"><em>1 call/mo</em> for QSA Support</li>
+								<li class="list-group-item">Access to Discourse</li>
+							</ul>
+							<div class="panel-body">
+								<button type="button" class="btn btn-raised ripple-effect btn-primary btn-lg btn-block">Sign Up</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4">
+						<div class="panel panel-default panel-highlight text-center">
+							<div class="panel-heading">
+								<h4>Premium</h4>
+								<p class="price text-primary">
+									<small>$</small>395<small class="text-muted">/month</small>
+								</p>
+							</div>
+							<ul class="list-group">
+								<li class="list-group-item text-muted">Ideal for Level 1/2 Merchants and Service Providers</li>
+								<li class="list-group-item"><em>Unlimited</em> PCI Workbooks</li>
+								<li class="list-group-item"><em>Unlimited</em> Users</li>
+								<li class="list-group-item"><em>4 calls/mo</em> for QSA Support</li>
+								<li class="list-group-item">Access to Discourse</li>
+							</ul>
+							<div class="panel-body">
+								<button type="button" class="btn btn-raised ripple-effect  btn-primary btn-lg btn-block">Sign Up</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<p class="lead text-center text-muted">Need a custom plan? Call us at <a href=" {% static 'tel:+16173839435' %} ">617-383-9435</a>.</p>
+			</div>
+		</section>
+		<section class="contact">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<h2 class="section-heading">Contact Us</h2>
+						<h3 class="section-subheading text-muted">1225 Howard St, San Francisco, 91222, CA.</h3>
+						<a href="#" class="btn btn-lg btn-raised ripple-effect btn-danger ">Send Message <i class="fa fa-chevron-right"></i></a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="cta-box clearfix">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 col-sm-3 col-xs-12 pull-right">
+						<a href="#" class="btn btn-raised btn-danger ripple-effect btn-lg" data-original-title="" title="">
+							<i class="ti-shopping-cart">
+								</i> &nbsp; Sumbit Property
+						</a>
+					</div>
+					<div class="col-md-9 col-sm-9 col-xs-12">
+						<h3>
+								Welcome to LuxRealty. Responsive Real Estate template
+							</h3>
+						<p>
+							Carefully designed to bring you the best performance, usage and customization experience!
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- FOOTER -->
+		<footer id="footer">
+			<div class="container">
+				<div class="col-sm-3">
+					<img src=" {% static 'images/logo-1.png' %} " alt="#" class="img-responsive logo">
+					<p>
+						Lux Realty,property theme &amp; publishing,with minimal design. We provide you with the latest fresh inspiration straight from the industrie.
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<h5>
+							COMMON TAGS
+						</h5>
+					<ul class="tags">
+						<li>
+							<a href="#" class="tag">
+									For Rent
+								</a>
+						</li>
+						<li>
+							<a href="#" class="tag">
+									For Sale
+								</a>
+						</li>
+						<li>
+							<a href="#" class="tag">
+									Sumbit property
+								</a>
+						</li>
+						<li>
+							<a href="#" class="tag">
+									Auctions 
+								</a>
+						</li>
+						<li>
+							<a href="#" class="tag">
+									Find agent
+								</a>
+						</li>
+						<li>
+							<a href="#" class="tag">
+									Find agency
+								</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-2">
+					<h5>
+							CATEGORIES
+						</h5>
+					<ul class="list-unstyled">
+						<li>
+							<a href="#">
+									For Rent
+								</a>
+						</li>
+						<li>
+							<a href="#">
+									For Sale
+								</a>
+						</li>
+						<li>
+							<a href="#">
+									Sumbit listing
+								</a>
+						</li>
+						<li>
+							<a href="#">
+									Auctions 
+								</a>
+						</li>
+						<li>
+							<a href="#">
+									Find agent
+								</a>
+						</li>
+						<li>
+							<a href="#">
+									Find agency
+								</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-2">
+					<h5>
+							ABOUT US
+						</h5>
+					<ul class="list-unstyled">
+						<li>
+							Available Jobs
+						</li>
+						<li>
+							Sumbit property
+						</li>
+						<li>
+							Contact Us
+						</li>
+						<li>
+							History
+						</li>
+						<li>
+							Impressium
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-2">
+					<h5>
+							ABOUT US
+						</h5>
+					<ul class="list-unstyled">
+						<li>
+							Available Jobs
+						</li>
+						<li>
+							Contact Us
+						</li>
+						<li>
+							History
+						</li>
+						<li>
+							Impressium
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="btmFooter">
+				<div class="container">
+					<div class="col-sm-7">
+						<p>
+							<strong>
+									Copyright 2015 
+								</strong> LuxRealty- real estate template made with
+							<i class="ti-heart">
+								</i>
+							<strong>
+									by Codenpixel
+								</strong>
+						</p>
+					</div>
+					<div class="col-sm-5">
+						<ul class="pay-opt pull-right list-inline list-unstyled">
+							<li>
+								<a href="#" title="#">
+									<img src=" {% static 'images/amz-icon.png' %} " class="img-responsive" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="#" title="#">
+									<img src=" {% static 'images/paypal-icon.png' %} " class="img-responsive" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="#" title="#">
+									<img src=" {% static 'images/ax-icon.png' %} " class="img-responsive" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="#" title="#">
+									<img src=" {% static 'images/mb-icon.png' %} " class="img-responsive" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="#" title="#">
+									<img src=" {% static 'images/mst-icon.png' %} " class="img-responsive" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="#" title="#">
+									<img src=" {% static 'images/mstr-icon.png' %} " class="img-responsive" alt="">
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<!--/#wrapper -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src=" {% static 'js/jquery.js' %} "></script>
+	<script src=" {% static 'js/bootstrap.min.js' %} "></script>
+	<script src=" {% static 'js/scripts.js' %} "></script>
+	<!-- REVOLUTION JS FILES -->
+	<script type="text/javascript" src=" {% static 'revolution/js/jquery.themepunch.tools.min.js' %} "></script>
+	<script type="text/javascript" src=" {% static 'revolution/js/jquery.themepunch.revolution.min.js' %} "></script>
+	<script src=" {% static 'js/init.js' %} "></script>
+
+</body>
+
+</html>

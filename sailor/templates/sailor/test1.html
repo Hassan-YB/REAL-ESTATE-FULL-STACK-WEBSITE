@@ -1,0 +1,10 @@
+
+{% load static %}
+{% for A in a  %}
+{{A.neighbourhood}} <br>
+{% if A.image %}
+    
+    <p>{{A.image}}</p>
+    <img src="data:{{ A.image.url }};base64," height="500px">
+{% endif %}
+{% endfor %}

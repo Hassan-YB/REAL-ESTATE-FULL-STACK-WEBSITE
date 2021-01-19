@@ -1,0 +1,597 @@
+{% extends 'sailor/index.html' %}
+
+{% load static %}
+
+{% block context1 %}
+ <!-- END REVOLUTION SLIDER -->
+		<section class="main-search">
+			<div class="container">
+				<h3>Search properties for sale</h3>
+				<form class="detailedsearch inline-style" action="#" method="post">
+					<div class="row">
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="form-group">
+								<select class="form-control" id="select">
+									<option>Location</option>
+									<option>Croatia</option>
+									<option>Slovenia</option>
+									<option>Serbia</option>
+									<option>Bosnia</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="form-group">
+								<select class="form-control" id="selectCity">
+									<option>City</option>
+									<option>Sarajevo</option>
+									<option>Zagreb</option>
+									<option>Beograd</option>
+									<option>Tuzla</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="form-group">
+								<select class="form-control" id="select-type">
+									<option>Rent or sale</option>
+									<option>Rent</option>
+									<option>Sale</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="form-group">
+								<select class="form-control" id="selectPriceMin">
+									<option>Price min.</option>
+									<option>100 000</option>
+									<option>150 000</option>
+									<option>200 000</option>
+									<option>300 000</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="form-group">
+								<select class="form-control" id="selectPriceMax">
+									<option>Price max.</option>
+									<option>100 000</option>
+									<option>150 000</option>
+									<option>200 000</option>
+									<option>300 000</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-2 col-sm-6 col-xs-12">
+							<div class="form-group">
+								<select class="form-control" id="selectBedrooms">
+									<option>Bedrooms</option>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-2 col-sm-6 col-xs-12">
+							<div class="form-group">
+								<select class="form-control" id="selectBathrooms">
+									<option>Bathrooms</option>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-2 col-sm-6 col-xs-12">
+							<div class="form-group">
+								<select class="form-control" id="selectParking">
+									<option>Parking space</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+						</div>
+
+
+
+
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<a href=" {% static 'results.html' %} " id="search" data-style="slide-left" class="btn btn-lg btn-raised ripple-effect btn-primary btn-block"> <i class="ti-search"></i>Search</a>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- /.container -->
+		</section>
+		<section class="inner-page">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-9 content-row">
+						<div class="row">
+							<div class="col-sm-7">
+								<h3 class="heading">Latest Listings Added</h3>
+								<p class="small">These are the most recent properties added</p>
+							</div>
+							<div class="col-sm-5">
+								<ul class="list-unstyled list-inline pull-right">
+									<li><a href="#" class="btn btn-default btn-raised ripple-effect">Sale</a>
+									</li>
+									<li><a href="#" class="btn btn-default btn-raised ripple-effect">Rents</a>
+									</li>
+									<li><a href=" {% static 'results.html' %} " class="btn btn-default btn-raised ripple-effect">List</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							{% for properties in properties %}
+						{% if properties %}
+							<div class="col-sm-4">
+								<div class="card">
+									<div class="card-image">
+										<img class="img-responsive" src=" {% static 'images/home-2.jpg' %} " alt="">
+										<span class="card-title"><a href="/{{properties.id}}">{{properties.title}}</a></span>
+										<span class="card-price">{{properties.listing_type}}</span>
+									</div>
+									<div class="card-content">
+										<div class="listingInfo">
+											<figure class="listerName">
+												<a href="#" class="agent-wrapper">
+													<img class="agent-photo" src=" {% static 'images/avatar-2.jpg' %} " width="50" height="50" alt="">
+												</a>
+											</figure>
+											<div class="propertyStats">
+												<p class="priceText">{{properties.price}}</p>
+											</div>
+											<div class="vcard">
+												<h2><a href=" {% static 'details.html' %} " class="name">{{properties.country}},{{properties.state}},{{properties.city}}</a></h2>
+												<p class="listingLocation save"><i class="fa fa-map-o"></i>{{properties.street_and_house_no}}</p>
+											</div>
+										</div>
+									</div>
+									<div class="card-action">
+										<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="Area"><i class="fa fa-th"></i><span>{{properties.area}}</span></a>
+										<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="Bedrooms"><i class="fa fa-bed"></i><span>{{properties.bedrooms}}</span></a>
+										<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="Bathrooms"><i class="fa fa-bath"></i><span>{{properties.bathrooms}}</span></a>
+										<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-star"></i><span>{{properties.rating}}</span></a>
+										<div class="pull-right">
+											<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+										</div>
+									</div>
+									<!-- end. Card actions -->
+								</div>
+							</div>
+						{% else %}
+						<h1>No Properties Available</p>
+						{% endif %}
+						{% endfor %}
+							
+							
+						</div>
+						<!-- /inner row -->
+						<div class="row">
+							
+						</div>
+						<!-- /inner row -->
+						<div class="row mar-top">
+							<div class="col-sm-7">
+								<h3 class="heading">Featured Agents & Agencies</h3>
+								<p class="small">Here you can list specific agent or agency for some additional price</p>
+							</div>
+							<div class="col-sm-5">
+								<ul class="list-unstyled list-inline pull-right">
+									<li><a href="#" class="btn btn-default btn-raised ripple-effect">Most popular</a>
+									</li>
+									<li><a href="#" class="btn btn-default btn-raised ripple-effect">Trending</a>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+						<!-- /row -->
+						<div class="row m-top-10">
+							<div class="col-sm-4">
+								<div class="card">
+									<div class="card-image">
+										<img class="img-responsive" src=" {% static 'images/home-2.jpg' %} " alt="">
+										<span class="card-title">Modern house</span>
+										<span class="card-price">For Rent</span>
+									</div>
+									<div class="card-content">
+										<div class="listingInfo">
+											<figure class="listerName">
+												<a href="#" class="agent-wrapper">
+													<img class="agent-photo" src=" {% static 'images/avatar-4.png' %} " width="50" height="50" alt="" data-toggle="tooltip" data-placement="top" title="Agent Jason Doe,LuxReally Agency">
+												</a>
+											</figure>
+											<div class="propertyStats">
+												<p class="priceText">$320,000</p>
+											</div>
+											<div class="vcard">
+												<h2><a href="#" class="name">10250 W. Sunset Blvd | Holmby Hills 50 E 28th</a></h2>
+												<p class="listingLocation save"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+											</div>
+										</div>
+									</div>
+
+									<!-- child property -->
+									<ul class="childs">
+										<li class="child-property">
+											<div class="card-content">
+												<div class="listingInfo">
+													<div class="propertyStats">
+														<p class="priceText">$3,087 – $6,141</p>
+													</div>
+													<div class="vcard">
+														<h2><a href="#" class="name">31350 Lobo Canyon Road | Agoura Hills</a></h2>
+														<p class="listingLocation"><i class="fa fa-map-o"></i>50 E 28th St, New York, NY 10016</p>
+													</div>
+												</div>
+											</div>
+
+										</li>
+										<!-- end:child property -->
+										<li class="child-property">
+											<div class="card-content">
+												<div class="listingInfo">
+													<div class="propertyStats">
+														<p class="priceText">$3,087 – $6,141</p>
+													</div>
+													<div class="vcard">
+														<h2><a href="#" class="name">31350 Lobo Canyon Road | Agoura Hills</a></h2>
+														<p class="listingLocation"><i class="fa fa-map-o"></i>50 E 28th St, New York, NY 10016</p>
+													</div>
+												</div>
+											</div>
+
+										</li>
+										<!-- end:child property -->
+									</ul>
+								</div>
+								<!-- /.card -->
+							</div>
+							<!-- /col -->
+							<div class="col-sm-4">
+								<div class="card">
+									<div class="card-image">
+										<img class="img-responsive" src=" {% static 'images/home-9.jpg' %} " alt="">
+										<span class="card-title">Modern house</span>
+										<span class="card-price">For Rent</span>
+									</div>
+									<div class="card-content">
+										<div class="listingInfo">
+											<figure class="listerName">
+												<a href="#" class="agent-wrapper">
+													<img class="agent-photo" src=" {% static 'images/avatar-2.jpg' %} " width="50" height="50" alt="" data-toggle="tooltip" data-placement="top" title="Agent Jason Doe,LuxReally Agency">
+												</a>
+											</figure>
+											<div class="propertyStats">
+												<p class="priceText">$685 000</p>
+											</div>
+											<div class="vcard">
+												<h2><a href="#" class="name">201 Avondale Ave | Brentwood Agoura Hills</a></h2>
+												<p class="listingLocation save"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+											</div>
+										</div>
+									</div>
+
+									<!-- child property -->
+									<ul class="childs">
+										<li class="child-property">
+											<div class="card-content">
+												<div class="listingInfo">
+													<div class="propertyStats">
+														<p class="priceText">$3650</p>
+													</div>
+													<div class="vcard">
+														<h2><a href="#" class="name">166 West 18th Street 12th FloorChelsea</a></h2>
+														<p class="listingLocation"><i class="fa fa-map-o"></i>50 E 28th St, New York, NY 10016</p>
+													</div>
+												</div>
+											</div>
+
+										</li>
+										<!-- end:child property -->
+										<li class="child-property">
+											<div class="card-content">
+												<div class="listingInfo">
+													<div class="propertyStats">
+														<p class="priceText">$3,087 – $6,141</p>
+													</div>
+													<div class="vcard">
+														<h2><a href="#" class="name">31350 Lobo Canyon Road | Agoura Hills</a></h2>
+														<p class="listingLocation"><i class="fa fa-map-o"></i>50 E 28th St, New York, NY 10016</p>
+													</div>
+												</div>
+											</div>
+
+										</li>
+										<!-- end:child property -->
+									</ul>
+								</div>
+								<!-- /.card -->
+							</div>
+							<!-- /col -->
+							<div class="col-sm-4">
+								<div class="card">
+									<div class="card-image">
+										<img class="img-responsive" src=" {% static 'images/home-8.jpg' %} " alt="">
+										<span class="card-title">Modern house</span>
+										<span class="card-price">For Rent</span>
+									</div>
+									<div class="card-content">
+										<div class="listingInfo">
+											<figure class="listerName">
+												<a href="#" class="agent-wrapper">
+													<img class="agent-photo" src=" {% static 'images/avatar-5.jpg' %} " width="50" height="50" alt="" data-toggle="tooltip" data-placement="top" title="Agent Jason Doe,LuxReally Agency">
+												</a>
+											</figure>
+											<div class="propertyStats">
+												<p class="priceText">$3,390 – $6,855</p>
+											</div>
+											<div class="vcard">
+												<h2><a href="#" class="name">Puck Penthouses, PH II Lobo Canyon 40th St</a></h2>
+												<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+											</div>
+										</div>
+									</div>
+
+									<!-- child property -->
+									<ul class="childs">
+										<li class="child-property">
+											<div class="card-content">
+												<div class="listingInfo">
+													<div class="propertyStats">
+														<p class="priceText">$3,087 – $6,141</p>
+													</div>
+													<div class="vcard">
+														<h2><a href="#" class="name">740 Park Avenue Apt 6/7aUpper East Side</a></h2>
+														<p class="listingLocation"><i class="fa fa-map-o"></i>New York10021United States</p>
+													</div>
+												</div>
+											</div>
+
+										</li>
+										<!-- end:child property -->
+										<li class="child-property">
+											<div class="card-content">
+												<div class="listingInfo">
+													<div class="propertyStats">
+														<p class="priceText">$3,087 – $6,141</p>
+													</div>
+													<div class="vcard">
+														<h2><a href="#" class="name">31350 Lobo Canyon Road | Agoura Hills</a></h2>
+														<p class="listingLocation"><i class="fa fa-map-o"></i>50 E 28th St, New York, NY 10016</p>
+													</div>
+												</div>
+											</div>
+
+										</li>
+										<!-- end:child property -->
+									</ul>
+								</div>
+								<!-- /.card -->
+							</div>
+							<!-- /col -->
+						</div>
+						<!-- /row -->
+					</div>
+					<!-- /col 9 -->
+					<aside class="col-sm-3 sidebar">
+
+
+						<div class="widget widget-subscribe panel media pad-all">
+							<div class="newsletter">
+								<h4>
+												Get Updates 
+												<span class="color-orange">
+													(it’s free)
+												</span>
+											</h4>
+								<p>
+									Subscribe to our newsletter for good deals, sent out every month.
+								</p>
+								<div class="form-group has-success">
+									<form method="post" action="">
+									<label class="control-label" for="inputSuccess">Enter Your E-mail</label>
+									{% csrf_token %}
+									<input type="text" class="form-control" id="inputSuccess" name="email">
+									<br>
+									<button id="button1id" name="button1id" class="btn btn-raised ripple-effect btn-success" type="submit">Sumbit</button>
+									</form>
+								</div>
+								<p class="note">Your Information Is Kept Safe</p>
+							</div>
+						</div>
+						<!-- /widget -->
+						<div class="widget">
+							<hr class="mBtm-50 mTop-30" data-symbol="Properties">
+							<a href="#" class="panel media middle sidebarProperty">
+								<div class="media-left media-middle bg-primary pad-no">
+									<img src=" {% static 'images/home-1.jpg' %} " width="120" height="100" alt="">
+								</div>
+								<div class="media-body media-middle pad-10">
+									<p class="mar-no font-sm">For Rent</p>
+									<p class="heading">Avalon Clinton</p>
+									<p class="mar-no">$45,000</p>
+								</div>
+							</a>
+							<a href="#" class="panel media middle sidebarProperty">
+								<div class="media-left media-middle bg-primary pad-no">
+									<img src=" {% static 'images/home-8.jpg' %} " width="120" height="100" alt="">
+								</div>
+								<div class="media-body media-middle pad-10">
+									<p class="mar-no font-sm">For Rent</p>
+									<p class="heading">Avalon Clinton</p>
+									<p class="mar-no">$45,000</p>
+								</div>
+							</a>
+							<a href="#" class="panel media middle sidebarProperty">
+								<div class="media-left media-middle bg-primary pad-no">
+									<img src=" {% static 'images/home-7.jpg' %} " width="120" height="100" alt="">
+								</div>
+								<div class="media-body media-middle pad-10">
+									<p class="mar-no font-sm">For Rent</p>
+									<p class="heading">Avalon Clinton</p>
+									<p class="mar-no">$45,000</p>
+								</div>
+							</a>
+							<a href="#" class="panel media middle sidebarProperty">
+								<div class="media-left media-middle bg-primary pad-no">
+									<img src=" {% static 'images/home-6.jpg' %} " width="120" height="100" alt="">
+								</div>
+								<div class="media-body media-middle pad-10">
+									<p class="mar-no font-sm">For Rent</p>
+									<p class="heading">Avalon Clinton</p>
+									<p class="mar-no">$45,000</p>
+								</div>
+							</a>
+						</div>
+						<!-- /wddget -->
+						<div class="widget">
+							<hr class="mBtm-50 mTop-30" data-symbol="Quick Links">
+							<nav>
+								<div id="menu" class="white menu">
+									<ul>
+										<li class="active"><a href="#"><i class="fa fa-home"> </i>Home</a></li>
+										<li><a href="#"><i class="fa fa-file-image-o"> </i>Properties</a>
+											<ul class="submenu">
+												<li><a href="#"> For Sale</a></li>
+												<li><a href="#"> For rent</a></li>
+											</ul>
+										</li>
+										<li><a href="#"><i class="fa fa-cog"> </i>Services</a>
+											<ul class="submenu">
+												<li><a href="#"> Sell your space </a>
+													<ul class="submenu">
+														<li><a href="#">Menu</a></li>
+														<li><a href="#"> Menu 2</a></li>
+													</ul>
+												</li>
+												<li><a href="#"> Sub 1</a></li>
+												<li><a href="#"> sub 2 </a></li>
+
+											</ul>
+										</li>
+										<li><a href="#"><i class="fa fa-newspaper-o"> </i>News<span class="menu-label"> 21 </span></a></li>
+										<li><a href="#"><i class="fa fa-user"> </i>About</a></li>
+										<li><a href="#"><i class="fa fa-envelope"> </i> Contact</a></li>
+									</ul>
+									<div class="menu-footer"> Search menu</div>
+								</div>
+							</nav>
+						</div>
+
+						<div class="widget">
+							<hr class="mBtm-50 mTop-30" data-symbol="Agents">
+							<a href="#" class="panel media middle sidebarProperty">
+								<div class="media-left media-middle bg-primary pad-no">
+									<img src=" {% static 'images/agent-5.jpg' %} " width="120" height="100" alt="">
+								</div>
+								<div class="media-body media-middle pad-10">
+									<p class="heading">Jason Doe</p>
+									<p class="mar-no font-sm">LuxRealty</p>
+									<div class="rating" data-stars="5.0"></div>
+								</div>
+							</a>
+							<a href="#" class="panel media middle sidebarProperty">
+								<div class="media-left media-middle bg-primary pad-no">
+									<img src=" {% static 'images/agent-2.jpg' %} " width="120" height="100" alt="">
+								</div>
+								<div class="media-body media-middle pad-10">
+									<p class="heading">Jason Doe</p>
+									<p class="mar-no font-sm">LuxRealty</p>
+									<div class="rating" data-stars="5.0"></div>
+								</div>
+							</a>
+							<a href="#" class="panel media middle sidebarProperty">
+								<div class="media-left media-middle bg-primary pad-no">
+									<img src=" {% static 'images/agent-3.jpg' %} " width="120" height="100" alt="">
+								</div>
+								<div class="media-body media-middle pad-10">
+									<p class="heading">Jason Doe</p>
+									<p class="mar-no font-sm">LuxRealty</p>
+									<div class="rating" data-stars="4.0"></div>
+								</div>
+							</a>
+							<a href="#" class="panel media middle sidebarProperty">
+								<div class="media-left media-middle bg-primary pad-no">
+									<img src=" {% static 'images/agent-4.jpg' %} " width="120" height="100" alt="">
+								</div>
+								<div class="media-body media-middle pad-10">
+									<p class="heading">Jason Doe</p>
+									<p class="mar-no font-sm">LuxRealty</p>
+									<div class="rating" data-stars="4.0"></div>
+								</div>
+							</a>
+						</div>
+						
+					</aside>
+				</div>
+			</div>
+			<div class="container">
+				<div class="card card-wraped text-center callElem">
+					<div class="row">
+						<div class="col-md-3 col-sm-4">
+							<div class="l-element l-top">
+								<div class="box-icon">
+									<div class="icon-wrap circle"> <i class="fa fa-map-o"></i>
+									</div>
+									<div class="text">
+										<h4>20 countries</h4>
+										<p>We cover more than 20 countries</p>
+									</div>
+								</div>
+								<!--/.icon box -->
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-4">
+							<div class="l-element l-top">
+								<div class="box-icon">
+									<div class="icon-wrap circle"> <i class="fa fa-building"></i>
+									</div>
+									<div class="text">
+										<h4> 250 CITIES </h4>
+										<p>We spread in over 250 cities</p>
+									</div>
+								</div>
+								<!--/.icon box -->
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-4">
+							<div class="l-element l-top">
+								<div class="box-icon">
+									<div class="icon-wrap circle"> <i class="ti-user"></i>
+									</div>
+									<div class="text">
+										<h4>1500 Members</h4>
+										<p>A growing community</p>
+									</div>
+								</div>
+								<!--/.icon box -->
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-4">
+							<div class="l-element l-top noborder">
+								<div class="box-icon">
+									<div class="icon-wrap circle"> <i class="fa fa-map-marker"></i>
+									</div>
+									<div class="text">
+										<h4> 78000 properties </h4>
+										<p>Over 70000 properties listed</p>
+									</div>
+								</div>
+								<!--/.icon box -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+{% endblock context1 %}
+

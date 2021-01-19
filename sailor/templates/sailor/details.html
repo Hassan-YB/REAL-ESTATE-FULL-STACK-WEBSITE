@@ -1,0 +1,527 @@
+{% extends 'sailor/index.html' %}
+{% load static %}
+{% block title %}
+<title>Details</title>
+{% endblock title %}
+
+{% block context1 %}
+<section class="page">
+				<div class="container">
+					<div class="page-wrap">
+						<div class="row">
+							<div class="col-sm-7">
+								<h4 class="page-header">{{property_detail.title}}</h4>
+								<!-- SLIDER EXAMPLE -->
+								<section class="slide">
+									<div class="row">
+										<div class="col-sm-12">
+											<div class="card pad-all">
+												<div id="rev_slider_60_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="vimeo-gallery58">
+													<!-- START REVOLUTION SLIDER 5.0.7 auto mode -->
+													<div id="rev_slider_details" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
+														<ul>
+															<!-- SLIDE  -->
+															<li data-index="rs-1"  data-transition="fade" data-slotamount="7"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="images/a1.jpg"  data-rotate="0"  data-saveperformance="off"  data-description="">
+																<!-- MAIN IMAGE -->
+																<img src=" {% static 'images/a1.jpg' %} "  alt=""  data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+																<!-- LAYERS -->
+															</li>
+															<!-- SLIDE  -->
+															<!-- SLIDE  -->
+															<li data-index="rs-2"  data-transition="fade" data-slotamount="7"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="images/a2.jpg"  data-rotate="0"  data-saveperformance="off"  data-description="">
+																<!-- MAIN IMAGE -->
+																<img src=" {% static 'images/a2.jpg' %} "  alt=""  data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+															</li>
+															<!-- SLIDE  -->
+															<!-- SLIDE  -->
+															<li data-index="rs-3"  data-transition="fade" data-slotamount="7"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="images/a3.jpg"  data-rotate="0"  data-saveperformance="off"  data-description="">
+																<!-- MAIN IMAGE -->
+																<img src=" {% static 'images/a3.jpg' %} "  alt=""  data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+																<!-- LAYERS -->
+															</li>
+															<!-- SLIDE  -->
+															<!-- SLIDE  -->
+															<li data-index="rs-4"  data-transition="fade" data-slotamount="7"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="images/a4.jpg"  data-rotate="0"  data-saveperformance="off"  data-description="">
+																<!-- MAIN IMAGE -->
+																<img src=" {% static 'images/a4.jpg' %} "  alt=""  data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+																<!-- LAYERS -->
+															</li>
+															<!-- SLIDE  -->
+															<li data-index="rs-5"  data-transition="fade" data-slotamount="7"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="images/a5.jpg"  data-rotate="0"  data-saveperformance="off"  data-description="">
+																<!-- MAIN IMAGE -->
+																<img src=" {% static 'images/a5.jpg' %} "  alt=""  data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+																<!-- LAYERS -->
+															</li>
+															<!-- SLIDE  -->
+															<li data-index="rs-5"  data-transition="fade" data-slotamount="7"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="images/a6.jpg"  data-rotate="0"  data-saveperformance="off"  data-description="">
+																<!-- MAIN IMAGE -->
+																<img src=" {% static 'images/a6.jpg' %} "  alt=""  data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+																<!-- LAYERS -->
+															</li>
+															<!-- SLIDE  -->
+															<li data-index="rs-5"  data-transition="fade" data-slotamount="7"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="images/a7.jpg"  data-rotate="0"  data-saveperformance="off"  data-description="">
+																<!-- MAIN IMAGE -->
+																<img src=" {% static 'images/a7.jpg' %} "  alt=""  data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+																<!-- LAYERS -->
+															</li>
+															<!-- SLIDE  -->
+															<li data-index="rs-5"  data-transition="fade" data-slotamount="7"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="images/a2.jpg"  data-rotate="0"  data-saveperformance="off"  data-description="">
+																<!-- MAIN IMAGE -->
+																<img src=" {% static 'images/a2.jpg' %} "  alt=""  data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+																<!-- LAYERS -->
+															</li>
+															<!-- SLIDE  -->
+														</ul>
+														<div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
+													</div>
+												</div>
+												<!-- END REVOLUTION SLIDER -->
+											</div>
+										</div>
+									</div>
+									<div class="panel pad-all">
+										<div class="listingInfo">
+											<h3><a href="#" class="name">Murray Hill Tower Apartments</a></h3>
+											<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+											<p class="lead">Inspired by luxury European living, this designer family home has multiple living areas, an elevated timber deck with scenic views and 2 x double lock-up garages </p>
+										</div>
+									</div>
+									<div class="panel pad-all">
+										<h3 class="hr hr-after">Property Description</h3>
+										<p class="lead">Inspired by luxury European living, this designer family home has multiple living areas, an elevated timber deck with scenic views and 2 x double lock-up garages - Loads of storage and car accommodation! </p>
+										<p>{{property_detail.Discription}}
+										</p>
+										{% comment %} <div class="row">
+											<div class="col-sm-8">
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+													tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+													quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+													consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+												</p>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+													tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+													quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+													consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+												</p>
+											</div>
+											<div class="col-sm-4">
+												<div class="panel panel-default panel-aside m-top-20">
+													<ul class="list-group list-group-aside">
+														<li class="list-group-item"><a href="#"><i class="fa fa-block fa-star"></i> Save to Favorite</a></li>
+														<li class="list-group-item"><a href="#"><i class="fa fa-block fa-bell"></i> Create Email Alert</a></li>
+														<li class="list-group-item"><a href="#"><i class="fa fa-block fa-print"></i> Print this page</a></li>
+														<li class="list-group-item"><a href="#"><i class="fa fa-block fa-exclamation-circle"></i> Report Listing</a></li>
+													</ul>
+												</div>
+											</div>
+										</div> {% endcomment %}
+										<h3>Property Features</h3>
+										<div class="row">
+											<div class="col-md-4 col-sm-4">
+												<ul class="features-list">
+													<li><i class="fa fa-check"></i> Air conditioning</li>
+													<li><i class="fa fa-check"></i> Balcony</li>
+													<li><i class="fa fa-times"></i> Bedding</li>
+													<li><i class="fa fa-check"></i> Cable TV</li>
+													<li><i class="fa fa-times"></i> Cleaning after exit</li>
+													<li><i class="fa fa-check"></i> Coffee pot</li>
+													<li><i class="fa fa-check"></i> Computer</li>
+													<li><i class="fa fa-times"></i> Cot</li>
+												</ul>
+											</div>
+											<div class="col-md-4 col-sm-4">
+												<ul class="features-list">
+													<li><i class="fa fa-check"></i> Internet</li>
+													<li><i class="fa fa-times"></i> Iron</li>
+													<li><i class="fa fa-check"></i> Juicer</li>
+													<li><i class="fa fa-times"></i> Lift</li>
+													<li><i class="fa fa-times"></i> Microwave</li>
+													<li><i class="fa fa-check"></i> Oven</li>
+													<li><i class="fa fa-times"></i> Parking</li>
+													<li><i class="fa fa-times"></i> Parquet</li>
+												</ul>
+											</div>
+											<div class="col-md-4 col-sm-4">
+												<ul class="features-list">
+													<li><i class="fa fa-times"></i> Radio</li>
+													<li><i class="fa fa-check"></i> Roof terrace</li>
+													<li><i class="fa fa-times"></i> Smoking allowed</li>
+													<li><i class="fa fa-check"></i> Terrace</li>
+													<li><i class="fa fa-times"></i> Toaster</li>
+													<li><i class="fa fa-check"></i> Towelwes</li>
+													<li><i class="fa fa-check"></i> Use of pool</li>
+													<li><i class="fa fa-check"></i> Video</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<!--/panel -->
+									<div class="row mar-top">
+										<div class="col-sm-12">
+											<hr class="mBtm-50 mTop-30" data-symbol="You may also like">
+										</div>
+										<div class="col-sm-6">
+											<div class="card">
+												<div class="card-image">
+													<img class="img-responsive" src=" {% static 'images/home-2.jpg' %} " alt="">
+													<span class="card-title">Modern house</span>
+													<span class="card-price">For Rent</span>
+												</div>
+												<div class="card-content">
+													<div class="listingInfo">
+														<figure class="listerName">
+															<a href="#" class="agent-wrapper"><img class="agency-photo" src=" {% static 'images/agency1.png' %} " width="50" height="50" alt="Danny"></a>
+														</figure>
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href="#" class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+												</div>
+												<div class="card-action">
+													<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="254 square feet"><i class="fa fa-th"></i><span>254</span></a>
+													<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="5 Bedroom House"><i class="fa fa-bed"></i><span>5</span></a>
+													<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="2 Parking space"><i class="fa fa-car"></i><span>2</span></a>
+													<div class="pull-right">
+														<a href="#" target="new_blank" class="save"><i class="fa fa-heart-o"></i><span>Save</span></a>
+													</div>
+												</div>
+												<!-- end. Card actions -->
+												<!-- child property -->
+												<ul class="childs">
+													<li class="child-property">
+														<div class="card-content">
+															<div class="listingInfo">
+																<div class="propertyStats">
+																	<p class="priceText">$3,087 – $6,141</p>
+																</div>
+																<div class="vcard">
+																	<h2><a href="#" class="name">Avalon Clinton Apartments</a></h2>
+																	<p class="listingLocation">50 E 28th St, New York, NY 10016</p>
+																</div>
+															</div>
+														</div>
+														<div class="card-action">
+															<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="254 square feet"><i class="fa fa-th"></i><span>254</span></a>
+															<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="5 Bedroom House"><i class="fa fa-bed"></i><span>5</span></a>
+															<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="2 Parking space"><i class="fa fa-car"></i><span>2</span></a>
+															<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade A++"><i class="fa fa-battery-three-quarters"></i><span> A++</span></a>
+															<div class="pull-right">
+																<a href="#" target="new_blank" class="save"><i class="fa fa-heart-o"></i><span>Save</span></a>
+															</div>
+														</div>
+														<!-- end. Card actions -->
+													</li>
+													<!-- end:child property -->
+												</ul>
+											</div>
+											<!-- /.card -->
+										</div>
+										<!-- /col -->
+										<div class="col-sm-6">
+											<div class="card">
+												<div class="card-image">
+													<img class="img-responsive" src=" {% static 'images/home-8.jpg' %} " alt="">
+													<span class="card-title">Modern house</span>
+													<span class="card-price">For Rent</span>
+												</div>
+												<div class="card-content">
+													<div class="listingInfo">
+														<figure class="listerName">
+															<a href="#" class="agent-wrapper"><img class="agent-photo" src=" {% static 'images/agency2.png' %} " width="50" height="50" alt="Danny"></a>
+														</figure>
+														<div class="propertyStats">
+															<p class="priceText">$3,390 – $6,855</p>
+														</div>
+														<div class="vcard">
+															<h2><a href="#" class="name">Murray Hill Tower Apartments</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+												</div>
+												<div class="card-action">
+													<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="321 square feet"><i class="fa fa-th"></i><span>321</span></a>
+													<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="1 Bedroom House"><i class="fa fa-bed"></i><span>1</span></a>
+													<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="1 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+													<div class="pull-right">
+														<a href="#" target="new_blank" class="save"><i class="fa fa-heart-o"></i><span>Save</span></a>
+													</div>
+												</div>
+												<!-- end. Card actions -->
+												<!-- child property -->
+												<ul class="childs">
+													<li class="child-property">
+														<div class="card-content">
+															<div class="listingInfo">
+																<div class="propertyStats">
+																	<p class="priceText">$3,087 – $6,141</p>
+																</div>
+																<div class="vcard">
+																	<h2><a href="#" class="name">Avalon Clinton Apartments</a></h2>
+																	<p class="listingLocation">50 E 28th St, New York, NY 10016</p>
+																</div>
+															</div>
+														</div>
+														<div class="card-action">
+															<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="254 square feet"><i class="fa fa-th"></i><span>125</span></a>
+															<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="5 Bedroom House"><i class="fa fa-bed"></i><span>1</span></a>
+															<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+															<div class="pull-right">
+																<a href="#" target="new_blank" class="save"><i class="fa fa-heart-o"></i><span>Save</span></a>
+															</div>
+														</div>
+														<!-- end. Card actions -->
+													</li>
+													<!-- end:child property -->
+												</ul>
+											</div>
+											<!-- /.card -->
+										</div>
+										<!-- /col -->
+									</div>
+								</section>
+							</div>
+							<div class="col-sm-5">
+								<h4 class="page-header">Advertiser details</h4>
+								<div class="widget card pad-all">
+									<div class="advert row">
+										<div class="logo-wrap col-sm-4">
+											<img src=" {% static 'images/agency2.png' %} " alt="" class="img-responsive">
+										</div>
+										<div class="advert-info col-sm-8">
+											<h3>Real estate Agency</h3>
+											<p>1225 Howard St, San Francisco, 91222, CA.</p>
+											<div class="rating" data-stars="5.0"><span>(26)</span></div>
+											<p class="btn-group clearfix" role="group" aria-label="...">
+												<button class="btn btn-default btn-raised js-open-modal-left" data-em-selector="#ajaxModal" data-em-position="left" data-em-push-content="true" data-em-css="custom-class" data-em-keyboard="false" data-em-backdrop="static">Contact Agency</button>
+												<button class="btn btn-danger btn-raised js-open-modal-right" data-em-selector="#shedule" data-em-position="right" data-em-push-content="true" data-em-css="custom-class" data-em-keyboard="false" data-em-backdrop="static">More propeties</button>
+											</p>
+										</div>
+									</div>
+								</div>
+								<!-- /end:widget -->
+								<div class="widget card pad-all">
+									<div class="table-responsive">
+										<table class="table table-bordered">
+											<tbody>
+												<tr>
+													<th scope="row">Listing Type:</th>
+													<td>{{property_detail.listing_type}}</td>
+												</tr>
+												<tr>
+													<th scope="row">Type :</th>
+													<td>{{property_detail.type}}</td>
+												</tr>
+												<tr>
+													<th scope="row">Price:</th>
+													<td>{{property_detail.price}}</td>
+												</tr>
+												<tr>
+													<th scope="row">Bathrooms:</th>
+													<td>{{property_detail.bathrooms}}</td>
+												</tr>
+												<tr>
+													<th scope="row">Area:</th>
+													<td>{{property_detail.area}}</td>
+												</tr>
+												<tr>
+													<th scope="row">Built Up Year:</th>
+													<td>{{property_detail.built_up_year}}</td>
+												</tr>
+												<tr>
+													<th scope="row">Floor Number:</th>
+													<td>{{property_detail.floor_number}}</td>
+												</tr>
+												<tr>
+													<th scope="row">Expiry Date:</th>
+													<td>{{property_detail.expiry}}</td>
+												</tr>
+												<tr>
+													<th scope="row">Available:</th>
+													<td>{{property_detail.status}}</td>
+												</tr>
+												<tr>
+													<th scope="row">Bedrooms:</th>
+													<td>{{property_detail.bedrooms}}</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<!-- /widget -->
+								<div class="widget card pad-all">
+									<div id="map"></div>
+								</div>
+								<div class="widget card pad-all">
+									<table class="js-table-checkable table table-hover agents-table">
+										<thead>
+											<tr>
+												<th class="text-center" style="width: 70px;"></th>
+												<th>Choose agent</th>
+												<th class="hidden-xs" style="width: 30%;">Available</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="">
+												<td class="text-center">
+													<label class="css-input css-checkbox css-checkbox-primary">
+														<input type="checkbox" id="row_1" name="row_1"><span></span>
+													</label>
+												</td>
+												<td>
+													<p class="font-w600 push-10">Ann Parker</p>
+													<p class="text-muted remove-margin-b">Customer details and further information</p>
+													<div class="rating" data-stars="5.0"><span>(26)</span></div>
+												</td>
+												<td class="hidden-xs">
+													<span class="label label-success">Available</span>
+												</td>
+											</tr>
+											<tr class="">
+												<td class="text-center">
+													<label class="css-input css-checkbox css-checkbox-primary">
+														<input type="checkbox" id="row_2" name="row_2"><span></span>
+													</label>
+												</td>
+												<td>
+													<p class="font-w600 push-10">Denise Watson</p>
+													<p class="text-muted remove-margin-b">Customer details and further information</p>
+													<div class="rating" data-stars="4.5"><span>(35)</span></div>
+												</td>
+												<td class="hidden-xs">
+													<span class="label label-danger">Not Available</span>
+												</td>
+											</tr>
+											<tr class="">
+												<td class="text-center">
+													<label class="css-input css-checkbox css-checkbox-primary">
+														<input type="checkbox" id="row_3" name="row_3"><span></span>
+													</label>
+												</td>
+												<td>
+													<p class="font-w600 push-10">Linda Moore</p>
+													<p class="text-muted remove-margin-b">Customer details and further information</p>
+													<div class="rating" data-stars="4.0"><span>(17)</span></div>
+												</td>
+												<td class="hidden-xs">
+													<span class="label label-success">Available</span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<form class="form-horizontal">
+										<fieldset>
+											<!-- Text input-->
+											<div class="form-group">
+												<label class="col-md-3 control-label" for="textinput">You name</label>  
+												<div class="col-md-9">
+													<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+												</div>
+											</div>
+											<!-- Password input-->
+											<div class="form-group">
+												<label class="col-md-3 control-label" for="email">E-mail</label>
+												<div class="col-md-9">
+													<input id="email" name="email" type="password" placeholder="" class="form-control input-md" required="">
+												</div>
+											</div>
+											<!-- Text input-->
+											<div class="form-group">
+												<label class="col-md-3 control-label" for="sumbjct">Subject</label>  
+												<div class="col-md-9">
+													<input id="sumbjct" name="sumbjct" type="text" placeholder="" class="form-control input-md">
+												</div>
+											</div>
+											<!-- Text input-->
+											<div class="form-group">
+												<label class="col-md-3 control-label" for="sumbjct">Phone number</label>  
+												<div class="col-md-9">
+													<input id="sumbject" name="sumbjct" type="text" placeholder="" class="form-control input-md">
+												</div>
+											</div>
+											<!-- Text input-->
+											<div class="form-group">
+												<label class="col-md-3 control-label" for="sumbjct">Best time for call</label>  
+												<div class="col-md-9">
+													<input id="call" name="sumbjct" type="text" placeholder="" class="form-control input-md">
+												</div>
+											</div>
+											<!-- Multiple Radios -->
+											<div class="form-group">
+												<label class="col-md-3 control-label">I would like to:</label>
+												<div class="col-md-9">
+													<div class="checkbox">
+														<label>
+															<input type="checkbox" value="">
+															Know when the property is available
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input type="checkbox" value="">
+															Find out the length of the lease
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input type="checkbox" value="">
+															Inspect the property
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input type="checkbox" value="">
+															Obtain a rental application
+														</label>
+													</div>
+												</div>
+											</div>
+											<!-- Textarea -->
+											<div class="form-group">
+												<label class="col-md-3 control-label" for="message">Your message</label>
+												<div class="col-md-9">                     
+													<textarea class="form-control" id="message" name="message"></textarea>
+												</div>
+											</div>
+											<div class="btn-group col-sm-9 col-sm-offset-3" role="group" aria-label="...">
+												<button class="btn btn-default btn-raised">Clear</button>
+												<button class="btn btn-danger btn-raised">Shedule visit</button>
+											</div>
+										</fieldset>
+									</form>
+								</div>
+							</div>
+							<!-- end: Col -->
+						</div>
+					</div>
+					<!-- /page content -->  
+				</div>
+			</section>
+{% endblock context1 %}
+
+{% block js %}
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+		<script type="text/javascript" src=" {% static 'js/gmaps.js' %} "></script>
+		<script>
+			var map = new GMaps({
+				el: '#map',
+				lat: 40.725015,
+				lng: -73.881452,
+				mapTypeControlOptions: {
+					mapTypeIds : ["hybrid", "roadmap", "satellite", "terrain", "osm"]
+				}
+			});
+			map.addMarker({
+				lat:  40.725015 ,
+				lng: -73.881452,
+				title: 'Im your custom marker',
+				icon: 'images/map-marker-blue.png',
+				infoWindow: {
+					content:'<div class="map-card"><img src=" {% static 'images/home-2.jpg' %} " alt="" class="img-responsive"><div class="card-content"><h3>1B Alexander Court, Lewisham, Tas 7173</h3><p class="price">$390,000 - $430,000</p><p><a href="#" class="btn btn-sm btn-raised">View Listing</a></p></div></div>'   
+				}
+			});
+		</script>
+{% endblock js %}

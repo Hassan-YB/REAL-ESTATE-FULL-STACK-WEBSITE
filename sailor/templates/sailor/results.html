@@ -1,0 +1,1401 @@
+{% extends 'sailor/index.html' %}
+{% load static %}
+
+{% block title %}
+<title>Results</title>
+{% endblock title %}
+
+{% block context1 %}
+<div class="container inner-page">
+			<div class="row">
+				<div class="col-sm-9 page-content col-thin-left">
+					<div class="category-list">
+						<div class="tab-box shadow card">
+							<ul class="nav nav-tabs add-tabs" id="ajaxTabs" role="tablist">
+								<li class=""><a href=" {% static '#allAds' %} " data-url=" {% static 'ajax/1.html' %} " role="tab" data-toggle="tab">All ads <span class="badge">102,201</span></a>
+								</li>
+								<li class=""><a href=" {% static '#businessAds' %} " data-url=" {% static 'ajax/2.html' %} " role="tab" data-toggle="tab">For sale <span class="badge">35,507</span></a>
+								</li>
+								<li class="active"><a href=" {% static '#personalAds' %} " data-url=" {% static 'ajax/3.html' %} " role="tab" data-toggle="tab">For Rent <span class="badge">74,493</span></a>
+								</li>
+							</ul>
+							<div class="tab-filter">
+								<div class="selecter select-short-by closed" tabindex="0">
+									<select class="selectpicker selecter-element" data-style="btn-select" data-width="auto" tabindex="-1">
+										<option value="Short by">Short by</option>
+										<option value="Price: Low to High">Low to High</option>
+										<option value="Price: High to Low">High to Low</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="adds-wrapper">
+							<div class="tab-content">
+								<div class="tab-pane fade" id="allAds">
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<a href="http://tinyurl.com/jdymnat"  class="card-image bg-image" data-image-src=" {% static 'images/home-1' %} ' %} ">
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</a>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-1.jpg' %} ">
+											
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-2.jpg' %} ">
+											
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+								</div>
+								<div class="tab-pane fade" id="businessAds">
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-3.jpg' %} ">
+											
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+								</div>
+								<div class="tab-pane fade active in" id="personalAds">
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-8.jpg' %} ">
+											
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-4.jpg' %} ">
+											
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href=" {% static 'details.html' %} " target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-5.jpg' %} ">
+													>
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href="#" class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href=" {% static 'details.html' %} " target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-6.jpg' %} ">
+												
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-7.jpg' %} ">
+												
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-8.jpg' %} ">
+											
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-9.jpg' %} ">
+													
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<nav>
+						<ul class="pagination pagination-lg">
+							<li><a href="#" aria-label="Previous" class="btn btn-raised ripple-effect btn-default"><span aria-hidden="true">«</span></a>
+							</li>
+							<li><a href="#" class="btn btn-raised ripple-effect btn-default">1</a>
+							</li>
+							<li><a href="#" class="btn btn-raised ripple-effect btn-default">2</a>
+							</li>
+							<li><a href="#" class="btn btn-raised ripple-effect btn-default">3</a>
+							</li>
+							<li><a href="#" class="btn btn-raised ripple-effect btn-default">4</a>
+							</li>
+							<li><a href="#" class="btn btn-raised ripple-effect btn-default">5</a>
+							</li>
+							<li><a href="#" aria-label="Next" class="btn btn-raised ripple-effect btn-default"><span aria-hidden="true">»</span></a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<!-- /col 9 -->
+				<aside class="col-sm-3">
+					<div class="widget card pad-all">
+						<hr class="mBtm-50 mTop-30" data-symbol="Search Properties">
+						<form action="#" method="get">
+							<div class="form-group">
+								<select class="form-control" id="select0">
+									<option>Location</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<select class="form-control" id="select1">
+									<option>City</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<select class="form-control" id="select2">
+									<option>Rent or sale</option>
+									<option>Rent</option>
+									<option>Sale</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<select class="form-control" id="select3">
+									<option>Bedrooms</option>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<select class="form-control" id="select4">
+									<option>Parking space</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<div class="row">
+									<div class="col-md-6 col-sm-6 col-xs-6">
+										<select class="form-control" name="re_price_to">
+											<option value="0">Any</option>
+											<option value="1000">$1000</option>
+											<option value="2000">$2000</option>
+											<option value="3000">$3000</option>
+											<option value="5000">$5000</option>
+											<option value="10000">$10000</option>
+											<option value="2000">$2000</option>
+											<option value="100000">$100000</option>
+											<option value="300000">$300000</option>
+											<option value="1000000+">1000000+</option>
+										</select>
+									</div>
+									<div class="col-md-6 col-sm-6 col-xs-6">
+										<select class="form-control" name="re_price_to">
+											<option value="0">Any</option>
+											<option value="1000">$1000</option>
+											<option value="2000">$2000</option>
+											<option value="3000">$3000</option>
+											<option value="5000">$5000</option>
+											<option value="10000">$10000</option>
+											<option value="2000">$2000</option>
+											<option value="100000">$100000</option>
+											<option value="300000">$300000</option>
+											<option value="1000000+">1000000+</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<p>
+								<button id="search" data-style="slide-left" class="btn btn-lg btn-raised ripple-effect btn-danger btn-block" type="submit"> <i class="ti-search"></i>Search</button>
+							</p>
+						</form>
+					</div>
+					<div class="widget card pad-all">
+						<hr class="mBtm-50 mTop-30" data-symbol="With Amenities">
+						<form>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Balcony
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Built-in Wardrobes
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Dishwasher
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Eco Friendly Features
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Pet Friendly
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Gym
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Smoking permitted
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Furnished
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Eco Friendly Features
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Pet Friendly
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Include surrounding suburbs
+								</label>
+							</div>
+						</form>
+					</div>
+					<div class="widget">
+						<hr class="mBtm-50 mTop-30" data-symbol="Properties">
+						<a href="#" class="panel media middle sidebarProperty">
+							<div class="media-left media-middle bg-primary pad-no">
+								<img src=" {% static 'images/home-1.jpg' %} " width="120" height="100" alt="">
+							</div>
+							<div class="media-body media-middle pad-10">
+								<p class="mar-no font-sm">For Rent</p>
+								<p class="heading">Avalon Clinton</p>
+								<p class="mar-no">$45,000</p>
+							</div>
+						</a>
+						<a href="#" class="panel media middle sidebarProperty">
+							<div class="media-left media-middle bg-primary pad-no">
+								<img src=" {% static 'images/home-8.jpg' %} " width="120" height="100" alt="">
+							</div>
+							<div class="media-body media-middle pad-10">
+								<p class="mar-no font-sm">For Rent</p>
+								<p class="heading">Avalon Clinton</p>
+								<p class="mar-no">$45,000</p>
+							</div>
+						</a>
+						<a href="#" class="panel media middle sidebarProperty">
+							<div class="media-left media-middle bg-primary pad-no">
+								<img src=" {% static 'images/home-7.jpg' %} " width="120" height="100" alt="">
+							</div>
+							<div class="media-body media-middle pad-10">
+								<p class="mar-no font-sm">For Rent</p>
+								<p class="heading">Avalon Clinton</p>
+								<p class="mar-no">$45,000</p>
+							</div>
+						</a>
+						<a href="#" class="panel media middle sidebarProperty">
+							<div class="media-left media-middle bg-primary pad-no">
+								<img src=" {% static 'images/home-6.jpg' %} " width="120" height="100" alt="">
+							</div>
+							<div class="media-body media-middle pad-10">
+								<p class="mar-no font-sm">For Rent</p>
+								<p class="heading">Avalon Clinton</p>
+								<p class="mar-no">$45,000</p>
+							</div>
+						</a>
+					</div>
+					<!-- /wddget -->
+					<div class="widget">
+						<hr class="mBtm-50 mTop-30" data-symbol="Agents">
+						<a href="#" class="panel media middle sidebarProperty">
+							<div class="media-left media-middle bg-primary pad-no">
+								<img src=" {% static 'images/agent-1.jpg' %} " width="120" height="100" alt="">
+							</div>
+							<div class="media-body media-middle pad-10">
+								<p class="heading">Jason Doe</p>
+								<p class="mar-no font-sm">LuxRealty</p>
+								<div class="rating" data-stars="5.0"></div>
+							</div>
+						</a>
+						<a href="#" class="panel media middle sidebarProperty">
+							<div class="media-left media-middle bg-primary pad-no">
+								<img src=" {% static 'images/agent-2.jpg' %} " width="120" height="100" alt="">
+							</div>
+							<div class="media-body media-middle pad-10">
+								<p class="heading">Jason Doe</p>
+								<p class="mar-no font-sm">LuxRealty</p>
+								<div class="rating" data-stars="5.0"></div>
+							</div>
+						</a>
+						<a href="#" class="panel media middle sidebarProperty">
+							<div class="media-left media-middle bg-primary pad-no">
+								<img src=" {% static 'images/agent-3.jpg' %} " width="120" height="100" alt="">
+							</div>
+							<div class="media-body media-middle pad-10">
+								<p class="heading">Jason Doe</p>
+								<p class="mar-no font-sm">LuxRealty</p>
+								<div class="rating" data-stars="4.0"></div>
+							</div>
+						</a>
+					</div>
+				</aside>
+			</div>
+		</div>
+	</div>
+
+{% endblock context1 %}<div class="container inner-page">
+			<div class="row">
+				<div class="col-sm-9 page-content col-thin-left">
+					<div class="category-list">
+						<div class="tab-box shadow card">
+							<ul class="nav nav-tabs add-tabs" id="ajaxTabs" role="tablist">
+								<li class=""><a href=" {% static '#allAds' %} " data-url=" {% static 'ajax/1.html' %} " role="tab" data-toggle="tab">All ads <span class="badge">102,201</span></a>
+								</li>
+								<li class=""><a href=" {% static '#businessAds' %} " data-url=" {% static 'ajax/2.html' %} " role="tab" data-toggle="tab">For sale <span class="badge">35,507</span></a>
+								</li>
+								<li class="active"><a href=" {% static '#personalAds' %} " data-url=" {% static 'ajax/3.html' %} " role="tab" data-toggle="tab">For Rent <span class="badge">74,493</span></a>
+								</li>
+							</ul>
+							<div class="tab-filter">
+								<div class="selecter select-short-by closed" tabindex="0">
+									<select class="selectpicker selecter-element" data-style="btn-select" data-width="auto" tabindex="-1">
+										<option value="Short by">Short by</option>
+										<option value="Price: Low to High">Low to High</option>
+										<option value="Price: High to Low">High to Low</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="adds-wrapper">
+							<div class="tab-content">
+								<div class="tab-pane fade" id="allAds">
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<a href="http://tinyurl.com/jdymnat"  class="card-image bg-image" data-image-src=" {% static 'images/home-1' %} ' %} ">
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</a>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-1.jpg' %} ">
+											
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-2.jpg' %} ">
+											
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+								</div>
+								<div class="tab-pane fade" id="businessAds">
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-3.jpg' %} ">
+											
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+								</div>
+								<div class="tab-pane fade active in" id="personalAds">
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-8.jpg' %} ">
+											
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-4.jpg' %} ">
+											
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href=" {% static 'details.html' %} " target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-5.jpg' %} ">
+													>
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href="#" class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href=" {% static 'details.html' %} " target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-6.jpg' %} ">
+												
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-7.jpg' %} ">
+												
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-8.jpg' %} ">
+											
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+									<div class="card card-horizontal">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="card-image bg-image" data-image-src=" {% static 'images/home-9.jpg' %} ">
+													
+													<span class="card-title">New Apartman</span>
+													<span class="card-price">For Sale</span>
+												</div>
+											</div>
+											<!-- /col 4 -->
+											<div class="col-sm-8">
+												<div class="card-content">
+													<div class="listingInfo">
+														<div class="propertyStats">
+															<p class="priceText">$390,000 - $430,000</p>
+														</div>
+														<div class="vcard">
+															<h2><a href=" {% static 'details.html' %} " class="name">1B Alexander Court, Lewisham, Tas 7173</a></h2>
+															<p class="listingLocation"><i class="fa fa-map-o"></i>245 E 40th St, New York, NY 10016</p>
+														</div>
+													</div>
+													<div class="card-action">
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="254 square feet"><i class="fa fa-th"></i><span>167</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="5 Bedroom House"><i class="fa fa-bed"></i><span>3</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="2 Parking space"><i class="fa fa-car"></i><span>1</span></a>
+														<a href="#" target="new_blank" data-toggle="tooltip" data-placement="top" title="" data-original-title="Energy-Efficient Home Grade B-"><i class="fa fa-battery-three-quarters"></i><span> B-</span></a>
+														<div class="pull-right">
+															<a href="#" target="new_blank"><i class="fa fa-heart-o"></i><span>Save</span></a>
+														</div>
+													</div>
+													<!-- end. Card actions -->
+												</div>
+											</div>
+											<!-- /col 8 -->
+										</div>
+										<!-- /inner row -->
+									</div>
+									<!-- end: card horizontal -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<nav>
+						<ul class="pagination pagination-lg">
+							<li><a href="#" aria-label="Previous" class="btn btn-raised ripple-effect btn-default"><span aria-hidden="true">«</span></a>
+							</li>
+							<li><a href="#" class="btn btn-raised ripple-effect btn-default">1</a>
+							</li>
+							<li><a href="#" class="btn btn-raised ripple-effect btn-default">2</a>
+							</li>
+							<li><a href="#" class="btn btn-raised ripple-effect btn-default">3</a>
+							</li>
+							<li><a href="#" class="btn btn-raised ripple-effect btn-default">4</a>
+							</li>
+							<li><a href="#" class="btn btn-raised ripple-effect btn-default">5</a>
+							</li>
+							<li><a href="#" aria-label="Next" class="btn btn-raised ripple-effect btn-default"><span aria-hidden="true">»</span></a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<!-- /col 9 -->
+				<aside class="col-sm-3">
+					<div class="widget card pad-all">
+						<hr class="mBtm-50 mTop-30" data-symbol="Search Properties">
+						<form action="#" method="get">
+							<div class="form-group">
+								<select class="form-control" id="select0">
+									<option>Location</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<select class="form-control" id="select1">
+									<option>City</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<select class="form-control" id="select2">
+									<option>Rent or sale</option>
+									<option>Rent</option>
+									<option>Sale</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<select class="form-control" id="select3">
+									<option>Bedrooms</option>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<select class="form-control" id="select4">
+									<option>Parking space</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<div class="row">
+									<div class="col-md-6 col-sm-6 col-xs-6">
+										<select class="form-control" name="re_price_to">
+											<option value="0">Any</option>
+											<option value="1000">$1000</option>
+											<option value="2000">$2000</option>
+											<option value="3000">$3000</option>
+											<option value="5000">$5000</option>
+											<option value="10000">$10000</option>
+											<option value="2000">$2000</option>
+											<option value="100000">$100000</option>
+											<option value="300000">$300000</option>
+											<option value="1000000+">1000000+</option>
+										</select>
+									</div>
+									<div class="col-md-6 col-sm-6 col-xs-6">
+										<select class="form-control" name="re_price_to">
+											<option value="0">Any</option>
+											<option value="1000">$1000</option>
+											<option value="2000">$2000</option>
+											<option value="3000">$3000</option>
+											<option value="5000">$5000</option>
+											<option value="10000">$10000</option>
+											<option value="2000">$2000</option>
+											<option value="100000">$100000</option>
+											<option value="300000">$300000</option>
+											<option value="1000000+">1000000+</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<p>
+								<button id="search" data-style="slide-left" class="btn btn-lg btn-raised ripple-effect btn-danger btn-block" type="submit"> <i class="ti-search"></i>Search</button>
+							</p>
+						</form>
+					</div>
+					<div class="widget card pad-all">
+						<hr class="mBtm-50 mTop-30" data-symbol="With Amenities">
+						<form>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Balcony
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Built-in Wardrobes
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Dishwasher
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Eco Friendly Features
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Pet Friendly
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Gym
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Smoking permitted
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Furnished
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Eco Friendly Features
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Pet Friendly
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">Include surrounding suburbs
+								</label>
+							</div>
+						</form>
+					</div>
+					<div class="widget">
+						<hr class="mBtm-50 mTop-30" data-symbol="Properties">
+						<a href="#" class="panel media middle sidebarProperty">
+							<div class="media-left media-middle bg-primary pad-no">
+								<img src=" {% static 'images/home-1.jpg' %} " width="120" height="100" alt="">
+							</div>
+							<div class="media-body media-middle pad-10">
+								<p class="mar-no font-sm">For Rent</p>
+								<p class="heading">Avalon Clinton</p>
+								<p class="mar-no">$45,000</p>
+							</div>
+						</a>
+						<a href="#" class="panel media middle sidebarProperty">
+							<div class="media-left media-middle bg-primary pad-no">
+								<img src=" {% static 'images/home-8.jpg' %} " width="120" height="100" alt="">
+							</div>
+							<div class="media-body media-middle pad-10">
+								<p class="mar-no font-sm">For Rent</p>
+								<p class="heading">Avalon Clinton</p>
+								<p class="mar-no">$45,000</p>
+							</div>
+						</a>
+						<a href="#" class="panel media middle sidebarProperty">
+							<div class="media-left media-middle bg-primary pad-no">
+								<img src=" {% static 'images/home-7.jpg' %} " width="120" height="100" alt="">
+							</div>
+							<div class="media-body media-middle pad-10">
+								<p class="mar-no font-sm">For Rent</p>
+								<p class="heading">Avalon Clinton</p>
+								<p class="mar-no">$45,000</p>
+							</div>
+						</a>
+						<a href="#" class="panel media middle sidebarProperty">
+							<div class="media-left media-middle bg-primary pad-no">
+								<img src=" {% static 'images/home-6.jpg' %} " width="120" height="100" alt="">
+							</div>
+							<div class="media-body media-middle pad-10">
+								<p class="mar-no font-sm">For Rent</p>
+								<p class="heading">Avalon Clinton</p>
+								<p class="mar-no">$45,000</p>
+							</div>
+						</a>
+					</div>
+					<!-- /wddget -->
+					<div class="widget">
+						<hr class="mBtm-50 mTop-30" data-symbol="Agents">
+						<a href="#" class="panel media middle sidebarProperty">
+							<div class="media-left media-middle bg-primary pad-no">
+								<img src=" {% static 'images/agent-1.jpg' %} " width="120" height="100" alt="">
+							</div>
+							<div class="media-body media-middle pad-10">
+								<p class="heading">Jason Doe</p>
+								<p class="mar-no font-sm">LuxRealty</p>
+								<div class="rating" data-stars="5.0"></div>
+							</div>
+						</a>
+						<a href="#" class="panel media middle sidebarProperty">
+							<div class="media-left media-middle bg-primary pad-no">
+								<img src=" {% static 'images/agent-2.jpg' %} " width="120" height="100" alt="">
+							</div>
+							<div class="media-body media-middle pad-10">
+								<p class="heading">Jason Doe</p>
+								<p class="mar-no font-sm">LuxRealty</p>
+								<div class="rating" data-stars="5.0"></div>
+							</div>
+						</a>
+						<a href="#" class="panel media middle sidebarProperty">
+							<div class="media-left media-middle bg-primary pad-no">
+								<img src=" {% static 'images/agent-3.jpg' %} " width="120" height="100" alt="">
+							</div>
+							<div class="media-body media-middle pad-10">
+								<p class="heading">Jason Doe</p>
+								<p class="mar-no font-sm">LuxRealty</p>
+								<div class="rating" data-stars="4.0"></div>
+							</div>
+						</a>
+					</div>
+				</aside>
+			</div>
+		</div>
+	</div>

@@ -1,0 +1,100 @@
+{% extends 'sailor/index.html' %}
+{% load static %}
+
+{% block title %}
+<title>Sign Up</title>
+{% endblock title %}
+
+{% block context1 %}
+<div class="reg-page space-sm" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <div class="pannel pad-all" style="text-align: center;">
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <div class="reg-header" >
+                                    <h2>Register a new account</h2>
+                                    <p>Already Signed Up? Click <a href="#" class="color-green">Sign In</a> to login your account.</p>
+                                </div>
+                                {% for field in form %}
+                                       {{ field.label_tag }} 
+                                       <br>
+                                       {{ field }} 
+                                        <br>
+                                      {% if field.help_text %}
+                                        <small style="color: grey">{{ field.help_text }}</small>
+                                      {% endif %}
+                                      {% for error in field.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                       {% endfor %}
+                                      </p>
+                                      {% endfor %}
+                                <div class="col-lg-6 text-right" style="padding:0 0 0 210px">
+                                        <button class="btn btn-raised btn-primary ripple-effect"  type="submit">Register</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card card-wraped">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4">
+                        <div class="l-element">
+                            <div class="box-icon">
+                                <div class="icon-wrap"> <i class="fa fa-map-o"></i> 
+                                </div>
+                                <div class="text">
+                                    <h4>20 countries</h4>
+                                    <p>We cover more than 20 countries</p>
+                                </div>
+                            </div>
+                            <!--/.icon box -->
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                        <div class="l-element">
+                            <div class="box-icon">
+                                <div class="icon-wrap"> <i class="fa fa-building"></i> 
+                                </div>
+                                <div class="text">
+                                    <h4> 250 CITIES </h4>
+                                    <p>We spread in over 250 cities</p>
+                                </div>
+                            </div>
+                            <!--/.icon box -->
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                        <div class="l-element">
+                            <div class="box-icon">
+                                <div class="icon-wrap"> <i class="ti-user"></i> 
+                                </div>
+                                <div class="text">
+                                    <h4>1500 Members</h4>
+                                    <p>A growing community</p>
+                                </div>
+                            </div>
+                            <!--/.icon box -->
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                        <div class="l-element">
+                            <div class="box-icon">
+                                <div class="icon-wrap"> <i class="fa fa-map-marker"></i> 
+                                </div>
+                                <div class="text">
+                                    <h4> 78000 properties </h4>
+                                    <p>Over 70000 properties listed</p>
+                                </div>
+                            </div>
+                            <!--/.icon box -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock context1 %}

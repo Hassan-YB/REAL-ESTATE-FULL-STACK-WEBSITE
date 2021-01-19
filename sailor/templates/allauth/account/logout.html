@@ -1,0 +1,29 @@
+{% extends "sailor/index.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+
+{% block context1 %}
+<div class="container-fluid text-center">
+
+<h3 class="h3" id="head_banner">{% trans "Sign Out" %}</h3>
+
+<p class="confirm_logout_info">{% trans 'Are you sure you want to sign out?' %}</p>
+
+<form class="container-fluid text-center" id="logout_form" method="post" action="{% url 'account_logout' %}">
+  {% csrf_token %}
+
+  {% if redirect_field_value %}
+
+  	<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+
+  {% endif %}
+  
+  <button  class="btn btn-raised btn-primary ripple-effect" type="submit">{% trans 'Sign Out' %}</button>
+  <a class="btn btn-raised btn-primary ripple-effect" id="custom_logout_no" href="/accounts/profile/">{% trans 'No' %}</a>
+</form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,418 @@
+{% extends 'sailor/index.html' %}
+{% load static %}
+
+{% block title %}
+<title>Submit</title>
+{% endblock title %}
+
+{% block context1 %}
+<div class="page-sumbit">
+            <div class="container">
+                <div class="vertical shadow">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href=" {% static '#tab1' %} " role="tab" data-toggle="tab" aria-expanded="false"><i class="fa fa-magic pr-10"></i>Registration</a>
+                        </li>
+                        <li class=""><a href=" {% static '#tab2' %} " role="tab" data-toggle="tab" aria-expanded="false"><i class="fa fa-life-saver pr-10"></i> Sumbit listing</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade active in space-sm" id="tab1">
+                            <div class="row">
+                                <!-- REGISTER -->
+                                <div class="col-md-6">
+                                    <div class="alert alert-success margin-bottom-30">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <strong>Register today for your</strong>Free listing sumbition
+                                    </div>
+                                    <form class="form-horizontal">
+                                        <fieldset>
+                                            <div class="form-group required">
+                                                <label class="col-md-4 control-label">You are a <sup>*</sup>
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" name="optionsRadios" id="optionsRadios-1" value="option1" checked="">Professional</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" name="optionsRadios" id="optionsRadios-2" value="option2">Individual</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group required">
+                                                <label class="col-md-4 control-label">First Name <sup>*</sup>
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <input name="name" placeholder="First Name" class="form-control input-md" required="" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="form-group required">
+                                                <label class="col-md-4 control-label">Last Name <sup>*</sup>
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <input name="textinput" placeholder="Last Name" class="form-control input-md" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="form-group required">
+                                                <label class="col-md-4 control-label">Phone Number <sup>*</sup>
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <input name="textinput" placeholder="Phone Number" class="form-control input-md" type="text">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" value="">
+                                                            <small> Hide the phone number on the published ads.</small> 
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">Gender</label>
+                                                <div class="col-md-8">
+                                                    <div class="radio">
+                                                        <label for="Gender-0">
+                                                            <input name="Gender" id="Gender-0" value="1" checked="checked" type="radio">Male</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label for="Gender-1">
+                                                            <input name="Gender" id="Gender-1" value="2" type="radio">Female</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label" for="textarea">About Yourself</label>
+                                                <div class="col-md-8">
+                                                    <textarea class="form-control" id="textarea" name="textarea">About Yourself</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group required">
+                                                <label for="inputEmail3" class="col-md-4 control-label">Email <sup>*</sup>
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group required">
+                                                <label for="inputPassword3" class="col-md-4 control-label">Password</label>
+                                                <div class="col-md-8">
+                                                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                                    <p class="help-block">At least 5 characters</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label"></label>
+                                                <div class="col-md-8">
+                                                    <div class="termbox mb10">
+                                                        <label class="checkbox-inline" for="checkboxes-1">
+                                                            <input name="checkboxes" id="checkboxes-1" value="1" type="checkbox">I have read and agree to the <a href=" {% static 'terms-conditions.html' %} ">Terms &amp; Conditions</a> 
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-top-30">
+                                                <div class="col-md-4"></div>
+                                                <div class="col-md-8">
+                                                    <div class="clearfix"></div>
+                                                    <a class="btn btn-danger btn-raised" href="#">Register</a> 
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                                <!-- /REGISTER -->
+                                <!-- WHY? -->
+                                <div class="col-md-6">
+                                    <h3>Registration</h3>
+                                    <div class="white-row">
+                                        <h4>Registration is fast, easy, and free.</h4>
+                                        <p>Once you're registered, you can:</p>
+                                        <ul class="features-list">
+                                            <li><i class="fa fa-check"></i>Buy, sell, and interact with other members.</li>
+                                            <li><i class="fa fa-check"></i>Save your favorite searches and get notified.</li>
+                                            <li><i class="fa fa-check"></i>Watch the status of up to 200 items.</li>
+                                            <li><i class="fa fa-check"></i>View your Atropos information from any computer in the world.</li>
+                                            <li><i class="fa fa-check"></i>Connect with the Atropos community.</li>
+                                        </ul>
+                                        <hr class="half-margins">
+                                        <p>
+                                            Already have an account?
+                                            <a href="#" class="btn btn-raised btn-default">Click to Sign In</a>
+                                        </p>
+                                    </div>
+                                    <div class="white-row">
+                                        <h4>Contact Customer Support</h4>
+                                        <p>
+                                            If you're looking for more help or have a question to ask, please <a href=" {% static 'contact.html' %} ">contact us</a>.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- /WHY? -->
+                            </div>
+                        </div>
+                        <div class="tab-pane fade row space-sm" id="tab2">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="alert alert-warning margin-bottom-30">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    Sumbit your property for free,or choose <strong>premium listing</strong> !
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <form class="form-horizontal">
+                                    <fieldset>
+                                        <!-- Select Basic -->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="selectbasic-02">Property Type :</label>
+                                            <div class="col-md-6">
+                                                <select id="selectbasic-02" name="selectbasic" class="form-control">
+                                                    <option value="1">Apartman</option>
+                                                    <option value="2">House</option>
+                                                    <option value="3">Villa</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- Multiple Radios -->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Listing Type :</label>
+                                            <div class="col-md-6">
+                                                <div class="radio">
+                                                    <label for="radios-0">
+                                                        <input type="radio" name="radios" id="radios-0" value="1" checked="checked">Sale
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label for="radios-1">
+                                                        <input type="radio" name="radios" id="radios-1" value="2">Rent
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="textinput">Listing name</label>
+                                            <div class="col-md-6">
+                                                <input id="textinput" name="textinput" type="text" placeholder="Name your listing" class="form-control input-md" required="">
+                                            </div>
+                                        </div>
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="textinput">Bedrooms :</label>
+                                            <div class="col-md-6">
+                                                <input id="textinput1" name="textinput" type="text" placeholder="" class="form-control input-md">
+                                            </div>
+                                        </div>
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="textinput">Bathrooms :</label>
+                                            <div class="col-md-6">
+                                                <input id="textinput2" name="textinput" type="text" placeholder="" class="form-control input-md">
+                                            </div>
+                                        </div>
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="textinput">Floor Number :</label>
+                                            <div class="col-md-6">
+                                                <input id="textinput3" name="textinput" type="text" placeholder="" class="form-control input-md">
+                                            </div>
+                                        </div>
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="textinput">Built Up Area :</label>
+                                            <div class="col-md-6">
+                                                <input id="textinput4" name="textinput" type="text" placeholder="" class="form-control input-md">
+                                            </div>
+                                        </div>
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="textinput">Built Year :</label>
+                                            <div class="col-md-6">
+                                                <input id="textinput5" name="textinput" type="text" placeholder="" class="form-control input-md">
+                                            </div>
+                                        </div>
+                                        <!-- Select Basic -->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="selectbasic1">Country :</label>
+                                            <div class="col-md-6">
+                                                <select id="selectbasic1" name="selectbasic" class="form-control">
+                                                    <option value="1">USA</option>
+                                                    <option value="2">FBiH</option>
+                                                    <option value="4">Austria</option>
+                                                    <option value="">Germany</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- Select Basic -->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="selectbasic2">State :</label>
+                                            <div class="col-md-6">
+                                                <select id="selectbasic2" name="selectbasic" class="form-control">
+                                                    <option value="1">BiH</option>
+                                                    <option value="2">NY</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- Select Basic -->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="selectbasic3">City :</label>
+                                            <div class="col-md-6">
+                                                <select id="selectbasic3" name="selectbasic" class="form-control">
+                                                    <option value="1">Sarajevo</option>
+                                                    <option value="2">Tuzla</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="textinput6">Neighborhood :</label>
+                                            <div class="col-md-6">
+                                                <input id="textinput6" name="textinput" type="text" placeholder="" class="form-control input-md">
+                                            </div>
+                                        </div>
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="textinput7">Longitude :</label>
+                                            <div class="col-md-6">
+                                                <input id="textinput7" name="textinput" type="text" placeholder="W40° 50" class="form-control input-md">
+                                            </div>
+                                        </div>
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="textinput8">Latitude :</label>
+                                            <div class="col-md-6">
+                                                <input id="textinput8" name="textinput" type="text" placeholder="N40° 50" class="form-control input-md">
+                                            </div>
+                                        </div>
+                                        <!-- Multiple Checkboxes -->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Multiple Checkboxes</label>
+                                            <div class="col-md-6">
+                                                <div class="checkbox">
+                                                    <label for="checkboxes-0">
+                                                        <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">Option one
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label for="checkboxes-01">
+                                                        <input type="checkbox" name="checkboxes" id="checkboxes-01" value="2">Option two
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- File Button -->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="filebutton">Images</label>
+                                            <div class="col-md-6">
+                                                <input id="filebutton" name="filebutton" class="input-file" type="file">
+                                            </div>
+                                        </div>
+                                        <!-- Textarea -->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="textarea1">Property Description</label>
+                                            <div class="col-md-6">
+                                                <textarea class="form-control" id="textarea1" name="textarea">Your description</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-8 col-sm-offset-2">
+                                                <div class="alert alert-success">
+                                                    <h4><i class=" icon-certificate icon-color-1"></i> Make your listing premium </h4>
+                                                    <p>Premium listing help sellers promote their properties by getting their more visibility. <a href="#">Check FAQ </a>
+                                                    </p>
+                                                </div>
+                                                <table class="table table-hover checkboxtable">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="radio">
+                                                                    <label>
+                                                                        <input type="radio" name="optionsRadios" id="optionsRadios0" value="option0" checked="">
+                                                                        <strong>Regular List </strong> 
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <p>$00.00</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="radio">
+                                                                    <label>
+                                                                        <input type="radio" name="optionsRadios" id="optionsRadios-02" value="option1">
+                                                                        <strong>Starter </strong> 
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <p>$15.00</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="radio">
+                                                                    <label>
+                                                                        <input type="radio" name="optionsRadios" id="optionsRadios-03" value="option3">
+                                                                        <strong>Premium </strong> 
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <p>$20.00</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="radio">
+                                                                    <label>
+                                                                        <input type="radio" name="optionsRadios" id="optionsRadios-04" value="option4">
+                                                                        <strong>Premium (colored listing) </strong> 
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <p>$40.00</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-group">
+                                                                    <div class="col-md-osffset-4 col-md-6">
+                                                                        <select class="form-control" name="Method" id="PaymentMethod">
+                                                                            <option value="2">Select Payment Method</option>
+                                                                            <option value="3">Paypal</option>
+                                                                            <option value="5">Stripe</option>
+                                                                            <option value="5">Visa</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <p> <strong>Payable Amount : $40.00</strong>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- Button (Double) -->
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="button1id"></label>
+                                            <div class="col-md-6">
+                                                <button id="button1id" name="button1id" class="btn btn-raised ripple-effect btn-success">Sumbit</button>
+                                                <button id="button2id" name="button2id" class="btn btn-raised ripple-effect btn-danger">Clear</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end:tab content -->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock context1 %}
