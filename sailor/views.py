@@ -11,8 +11,8 @@ from django.db import connection
 company=PropertyCompany.objects.all()
 #@login_required
 def index(request):
-    properties=Advertisement.objects.distinct()
-    #unique properties
+    properties=Advertisement.objects.filter(ad_price_type="Featured listing $20")
+    pro=Advertisement.objects.filter(ad_price_type="Regular listing $5")[:3]
     if request.method=="POST":
         form=Submitpropertyform(request.POST)
         Newsform=Newsletterform(request.POST)
@@ -37,13 +37,16 @@ def index(request):
             ad.expiry=form.cleaned_data['expiry']
             ad.description=form.cleaned_data['description']
             ad.street_and_house_no=form.cleaned_data['street_and_house_no']
+            ad.owner=form.cleaned_data['owner']   
             ad.save()
-            return redirect('sailor/')
+            return redirect('/')
         if Newsform.is_valid():
             object=Newsletter()
             object.email=Newsform.cleaned_data['email']
             object.save()
-    return render(request,'sailor/home.html',{'properties':properties,'company':company})
+            return redirect('/')
+        
+    return render(request,'sailor/home.html',{'properties':properties,'company':company,'pro':pro})
 
 def contact(request):
     return render(request,'sailor/contact.html',{'company':company})
@@ -67,6 +70,13 @@ def results_grid(request):
     return render(request,'sailor/results_grid.html',{'company':company})
 
 def results(request):
+    if request.method=="POST":
+        country=request.POST['country']
+        city=request.POST['city']
+        listing=request.POST['listing_type']
+        bedrooms=request.POST['bedrooms']
+        se=Advertisement.objects.filter(country=country,city=city,listing_type=listing,bedrooms=bedrooms)
+        return render(request,'sailor/results.html',{'company':company,'search':se})
     return render(request,'sailor/results.html',{'company':company})
 
 def search_users(request):

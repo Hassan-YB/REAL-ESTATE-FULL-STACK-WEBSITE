@@ -6,41 +6,37 @@
  <!-- END REVOLUTION SLIDER -->
 		<section class="main-search">
 			<div class="container">
-				<h3>Search properties for sale</h3>
-				<form class="detailedsearch inline-style" action="#" method="post">
+				<h3>Search properties for sale </h3>
+				<form class="detailedsearch inline-style" action="{% url 'results' %}" method="post">
+				{% csrf_token %}
 					<div class="row">
 						<div class="col-md-3 col-sm-6 col-xs-12">
 							<div class="form-group">
-								<select class="form-control" id="select">
-									<option>Location</option>
-									<option>Croatia</option>
-									<option>Slovenia</option>
-									<option>Serbia</option>
-									<option>Bosnia</option>
+								<select class="form-control" name="country">
+									<option value="Pakistan">Pakistan</option>
+									<option value="India">India</option>
 								</select>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-6 col-xs-12">
 							<div class="form-group">
-								<select class="form-control" id="selectCity">
+								<select class="form-control"  name="city">
 									<option>City</option>
-									<option>Sarajevo</option>
-									<option>Zagreb</option>
-									<option>Beograd</option>
-									<option>Tuzla</option>
+									<option value="Lahore">Lahore</option>
+									<option value="Faislabad">Faislabad</option>
 								</select>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-6 col-xs-12">
 							<div class="form-group">
-								<select class="form-control" id="select-type">
+								<select class="form-control"  name="listing_type">
 									<option>Rent or sale</option>
-									<option>Rent</option>
-									<option>Sale</option>
+									<option value="Rent">Rent</option>
+									<option value="Sale">Sale</option>
 								</select>
 							</div>
 						</div>
-						<div class="col-md-3 col-sm-6 col-xs-12">
+						{% comment %} <div class="col-md-3 col-sm-6 col-xs-12">
 							<div class="form-group">
 								<select class="form-control" id="selectPriceMin">
 									<option>Price min.</option>
@@ -61,26 +57,26 @@
 									<option>300 000</option>
 								</select>
 							</div>
-						</div>
+						</div> {% endcomment %}
 						<div class="col-md-2 col-sm-6 col-xs-12">
 							<div class="form-group">
-								<select class="form-control" id="selectBedrooms">
+								<select class="form-control" name="bedrooms">
 									<option>Bedrooms</option>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
 								</select>
 							</div>
 						</div>
-						<div class="col-md-2 col-sm-6 col-xs-12">
+						{% comment %} <div class="col-md-2 col-sm-6 col-xs-12">
 							<div class="form-group">
-								<select class="form-control" id="selectBathrooms">
+								<select class="form-control" id="selectBathrooms" name="bathrooms">
 									<option>Bathrooms</option>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
 								</select>
 							</div>
 						</div>
@@ -94,13 +90,13 @@
 									<option>5</option>
 								</select>
 							</div>
-						</div>
+						</div> {% endcomment %}
 
 
 
 
 						<div class="col-md-3 col-sm-6 col-xs-12">
-							<a href=" {% static 'results.html' %} " id="search" data-style="slide-left" class="btn btn-lg btn-raised ripple-effect btn-primary btn-block"> <i class="ti-search"></i>Search</a>
+							<button type="submit"  data-style="slide-left" class="btn btn-lg btn-raised ripple-effect btn-primary btn-block"> <i class="ti-search"></i>Search</button>
 						</div>
 					</div>
 				</form>
@@ -113,7 +109,7 @@
 					<div class="col-sm-9 content-row">
 						<div class="row">
 							<div class="col-sm-7">
-								<h3 class="heading">Latest Listings Added</h3>
+								<h3 class="heading">Latest 10$ Featured Properties</h3>
 								<p class="small">These are the most recent properties added</p>
 							</div>
 							<div class="col-sm-5">
@@ -409,47 +405,24 @@
 						</div>
 						<!-- /widget -->
 						<div class="widget">
-							<hr class="mBtm-50 mTop-30" data-symbol="Properties">
-							<a href="#" class="panel media middle sidebarProperty">
+							<hr class="mBtm-50 mTop-30" data-symbol="5$ Featured Properties">
+							{% if pro %}
+							{% for pro in pro %}
+							<a href="/{{pro.id}}" class="panel media middle sidebarProperty">
 								<div class="media-left media-middle bg-primary pad-no">
 									<img src=" {% static 'images/home-1.jpg' %} " width="120" height="100" alt="">
 								</div>
 								<div class="media-body media-middle pad-10">
-									<p class="mar-no font-sm">For Rent</p>
-									<p class="heading">Avalon Clinton</p>
-									<p class="mar-no">$45,000</p>
+									<p class="mar-no font-sm">{{pro.listing_type}}</p>
+									<p class="heading">{{pro.block_and_street_no}}</p>
+									<p class="mar-no">{{pro.price}}</p>
 								</div>
 							</a>
-							<a href="#" class="panel media middle sidebarProperty">
-								<div class="media-left media-middle bg-primary pad-no">
-									<img src=" {% static 'images/home-8.jpg' %} " width="120" height="100" alt="">
+							{% endfor %}
+							{% else %}<div class="media-body media-middle pad-10">
+									<p class="heading" style="font-weight:BigBold">No properties Found</p>
 								</div>
-								<div class="media-body media-middle pad-10">
-									<p class="mar-no font-sm">For Rent</p>
-									<p class="heading">Avalon Clinton</p>
-									<p class="mar-no">$45,000</p>
-								</div>
-							</a>
-							<a href="#" class="panel media middle sidebarProperty">
-								<div class="media-left media-middle bg-primary pad-no">
-									<img src=" {% static 'images/home-7.jpg' %} " width="120" height="100" alt="">
-								</div>
-								<div class="media-body media-middle pad-10">
-									<p class="mar-no font-sm">For Rent</p>
-									<p class="heading">Avalon Clinton</p>
-									<p class="mar-no">$45,000</p>
-								</div>
-							</a>
-							<a href="#" class="panel media middle sidebarProperty">
-								<div class="media-left media-middle bg-primary pad-no">
-									<img src=" {% static 'images/home-6.jpg' %} " width="120" height="100" alt="">
-								</div>
-								<div class="media-body media-middle pad-10">
-									<p class="mar-no font-sm">For Rent</p>
-									<p class="heading">Avalon Clinton</p>
-									<p class="mar-no">$45,000</p>
-								</div>
-							</a>
+							{% endif %}
 						</div>
 						<!-- /wddget -->
 						<div class="widget">
