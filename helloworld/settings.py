@@ -154,4 +154,3 @@ MEDIA_URL = '/media/'
 #Allauth login redirect to homepage
 LOGIN_REDIRECT_URL = '/'
 
-django_heroku.settings(locals())
