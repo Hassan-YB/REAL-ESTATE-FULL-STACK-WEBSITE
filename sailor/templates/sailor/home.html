@@ -129,7 +129,11 @@
 							<div class="col-sm-4">
 								<div class="card">
 									<div class="card-image">
-										<img class="img-responsive" src=" {% static 'images/home-2.jpg' %} " alt="">
+										{% if properties.images %}
+											<img class="img-responsive" src="{{properties.images.url}}" alt="">
+										{% else %}
+											<img class="img-responsive" src=" {% static 'images/home-2.jpg' %} " alt="">
+										{% endif %}
 										<span class="card-title"><a href="/{{properties.id}}">{{properties.title}}</a></span>
 										<span class="card-price">{{properties.listing_type}}</span>
 									</div>

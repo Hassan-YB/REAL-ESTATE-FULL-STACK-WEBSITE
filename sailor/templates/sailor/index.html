@@ -621,7 +621,7 @@
 							</button>
 							<h4 class="modal-title">Quick Property Sumbit</h4>
 						</div>
-						<form class="form-horizontal" method="post" action="">
+						<form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
 							{% csrf_token %}
 							<fieldset>
 								<!-- Select Basic -->
@@ -723,13 +723,6 @@
 								</div>
 								<!-- Text input-->
 								<div class="form-group">
-									<label class="col-md-4 control-label" for="textinput">ID :</label>
-									<div class="col-md-8">
-										<input id="textinput7" name="id" type="text" placeholder="" class="form-control input-md">
-									</div>
-								</div>
-								<!-- Text input-->
-								<div class="form-group">
 									<label class="col-md-4 control-label" for="textinput">Price :</label>
 									<div class="col-md-8">
 										<input id="textinput8" name="price" type="text" placeholder="" class="form-control input-md">
@@ -754,6 +747,13 @@
 									<label class="col-md-4 control-label">Neighborhood</label>
 									<div class="col-md-8">
 										<textarea class="form-control" id="textarea" name="neigborhood"></textarea>
+									</div>
+								</div>
+								<!-- Text input-->
+								<div class="form-group">
+									<label class="col-md-4 control-label" for="textinput">Image</label>
+									<div class="col-md-8">
+										<input class="form-control" name="images" type="file" id="textarea" >
 									</div>
 								</div>
 								<!-- Multiple Checkboxes -->

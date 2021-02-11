@@ -1,5 +1,5 @@
 from django.db import models
-
+import uuid
 class AccountEmailaddress(models.Model):
     email = models.CharField(unique=True, max_length=254)  
     verified = models.IntegerField()
@@ -25,7 +25,7 @@ class AccountEmailconfirmation(models.Model):
 class Advertisement(models.Model):
     type = models.CharField(db_column='Type', max_length=30, blank=True, null=True)  # Field name made lowercase.
     price = models.CharField(db_column='Price', max_length=30, blank=True, null=True)  # Field name made lowercase.
-    id = models.IntegerField(db_column='Id', primary_key=True)  # Field name made lowercase.
+    id = models.CharField(db_column='Id', primary_key=True,unique=True,default=uuid.uuid4().hex[:6],max_length=10)  # Field name made lowercase.
     title = models.CharField(db_column='Title', max_length=30)  # Field name made lowercase.
     listing_type = models.CharField(db_column='Listing_type', max_length=30)  # Field name made lowercase.
     bedrooms = models.IntegerField(db_column='Bedrooms', blank=True, null=True)  # Field name made lowercase.
@@ -43,10 +43,15 @@ class Advertisement(models.Model):
     city = models.CharField(db_column='City', max_length=30)  # Field name made lowercase.
     street_and_house_no = models.CharField(db_column='Street_and_house_no', max_length=50, blank=True, null=True)
     owner = models.CharField(db_column='Owner', max_length=50, blank=True, null=True)
+    images = models.ImageField(blank=True, null=True,upload_to="media")
     class Meta:
         managed = False
         db_table = 'advertisement'
 
+    def f():
+        d = uuid4()
+        str = d.hex
+        return str[0:16]
 
 """ class Agent(models.Model):
     email = models.CharField(db_column='Email', max_length=30)  # Field name made lowercase.

@@ -7,7 +7,7 @@ class Submitpropertyform(forms.ModelForm):
 
     class Meta:
         model = Advertisement
-        fields = ("type","price","id","title","listing_type","bedrooms","bathrooms","floor_number","neigborhood","description","built_up_year","ad_price_type","expiry","area","country","state","city","street_and_house_no","owner")
+        fields = ("type","price","title","listing_type","bedrooms","bathrooms","floor_number","neigborhood","description","built_up_year","ad_price_type","expiry","area","country","state","city","street_and_house_no","owner","images")
 
 class Newsletterform(forms.ModelForm):
     

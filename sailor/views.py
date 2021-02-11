@@ -12,9 +12,9 @@ company=PropertyCompany.objects.all()
 #@login_required
 def index(request):
     properties=Advertisement.objects.filter(ad_price_type="Featured listing $20")
-    pro=Advertisement.objects.filter(ad_price_type="Regular listing $5")[:3]
+    pro=Advertisement.objects.filter(ad_price_type="Regular listing $5")
     if request.method=="POST":
-        form=Submitpropertyform(request.POST)
+        form=Submitpropertyform(request.POST, request.FILES)
         Newsform=Newsletterform(request.POST)
         if form.is_valid():
             ad=Advertisement()
@@ -22,7 +22,6 @@ def index(request):
             ad.listing_type=form.cleaned_data['listing_type']
             ad.title=form.cleaned_data['title']
             ad.price=form.cleaned_data['price']
-            ad.id=form.cleaned_data['id']
             ad.bedrooms=form.cleaned_data['bedrooms']
             ad.bathrooms=form.cleaned_data['bathrooms']
             ad.floor_number=form.cleaned_data['floor_number']
@@ -38,6 +37,7 @@ def index(request):
             ad.description=form.cleaned_data['description']
             ad.street_and_house_no=form.cleaned_data['street_and_house_no']
             ad.owner=form.cleaned_data['owner']   
+            ad.images=form.cleaned_data['images']   
             ad.save()
             return redirect('/')
         if Newsform.is_valid():
@@ -67,7 +67,8 @@ def registration(request):
     return render(request,'sailor/registration.html',{'company':company})
 
 def results_grid(request):
-    return render(request,'sailor/results_grid.html',{'company':company})
+    projects=Advertisement.objects.all()
+    return render(request,'sailor/results_grid.html',{'company':company,'projects':projects})
 
 def results(request):
     if request.method=="POST":
