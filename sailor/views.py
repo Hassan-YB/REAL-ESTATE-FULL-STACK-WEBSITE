@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import *
 from django.contrib.auth.models import User
 from django.db import connection
+from django.contrib import messages
 
 company=PropertyCompany.objects.all()
 #@login_required
@@ -44,6 +45,7 @@ def index(request):
             object=Newsletter()
             object.email=Newsform.cleaned_data['email']
             object.save()
+            messages.info(request, 'Thanks for registering in Newsfeed!') 
             return redirect('/')
         
     return render(request,'sailor/home.html',{'properties':properties,'company':company,'pro':pro})
@@ -52,6 +54,9 @@ def contact(request):
     return render(request,'sailor/contact.html',{'company':company})
 
 def agent_profile(request):
+    if request.method=="POST":
+        Newsform=Newsletterform(request.POST)
+
     return render(request,'sailor/agent_profile.html',{'company':company})
 
 def details(request):

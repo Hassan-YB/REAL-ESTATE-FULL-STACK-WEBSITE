@@ -195,6 +195,7 @@ class Newsletter(models.Model):
         db_table = 'newsletter'
 
 
+
 class PropertyCompany(models.Model):
     name = models.CharField(db_column='Name', primary_key=True, max_length=30)  # Field name made lowercase.
     country = models.CharField(db_column='Country', max_length=50, blank=True, null=True)  # Field name made lowercase.
@@ -263,3 +264,4 @@ class SocialaccountSocialtoken(models.Model):
         managed = False
         db_table = 'socialaccount_socialtoken'
         unique_together = (('app', 'account'),)
+
