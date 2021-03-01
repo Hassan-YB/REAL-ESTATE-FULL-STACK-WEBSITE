@@ -130,7 +130,7 @@
 								<div class="card">
 									<div class="card-image">
 										{% if properties.images %}
-											<img class="img-responsive" style="width:500px;height:205px;" src="{{properties.images.url}}" alt="">
+											<img class="img-responsive" style="width:312.5px;height:208.33px;" src="{{properties.images.url}}" alt="">
 										{% else %}
 											<img class="img-responsive" src=" {% static 'images/home-2.jpg' %} " alt="">
 										{% endif %}
@@ -395,26 +395,6 @@
 								<p>
 									Subscribe to our newsletter for good deals, sent out every month.
 								</p>
-
-								{% block javascript %}
- 								 <script>
-   									 $("#inputSuccess").change(function () {
-    								  var username = $(this).val();
-    								  $.ajax({
-    								    url: '/ajax/validate_username/',
-    								    data: {
-      									    'username': username
-      										  },
-      								    dataType: 'json',
-      								    success: function (data) {
-       							   if (data.is_taken) {
-        							    alert("A user with this username already exists.");
-       												   }
-     										   }
-     										 });
-   											 });
- 								 </script>
-								{% endblock %}
 
 								<div class="form-group has-success">
 									<form method="post" action="">

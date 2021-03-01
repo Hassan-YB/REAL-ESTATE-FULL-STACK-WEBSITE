@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 from django.db import connection
 from django.contrib import messages
 import re
+from django.core.mail import send_mail
 
 EMAIL_REGEX = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
 
@@ -19,7 +20,7 @@ def index(request):
     pro=Advertisement.objects.filter(ad_price_type="Regular listing $5")
     if request.method=="POST":
         form=Submitpropertyform(request.POST, request.FILES)
-        Newsform=Newsletterform(request.POST)
+        Newsform=Newsletterform(request.POST, request.FILES)
         if form.is_valid():
             ad=Advertisement()
             ad.type=form.cleaned_data['type']
@@ -42,18 +43,23 @@ def index(request):
             ad.street_and_house_no=form.cleaned_data['street_and_house_no']
             ad.owner=form.cleaned_data['owner']   
             ad.images=form.cleaned_data['images']   
-            ad.save()
-            return redirect('/')
+            if Advertisement.objects.filter(street_and_house_no=form.cleaned_data['street_and_house_no']).exists():
+                messages.error(request, 'Advertisement with same address already exists!')
+                return redirect('/')
+            else:
+                messages.success(request, 'Advertisement created!')
+                ad.save()
+                return redirect('/')
         if Newsform.is_valid():
             object=Newsletter()
             mail=Newsform.cleaned_data['email']
             object.email=Newsform.cleaned_data['email']
-            if Newsletter.objects.filter(email=mail).exists():
-                messages.info(request, 'Email already registered in Newsfeed!')
-                return render(request,'sailor/contact.html')
+            if mail and Newsletter.objects.filter(email=Newsform.cleaned_data['email']):
+                messages.error(request, 'Email already registered in Newsfeed!')
+                return redirect('/')
             else: 
                 if mail and not re.match(EMAIL_REGEX, mail):
-                    messages.error(request, 'Invalid Format') 
+                    messages.error(request, 'Invalid Format!') 
                     return redirect('/')
                 else:
                     messages.success(request, 'Thanks for registering in Newsfeed!') 
@@ -62,14 +68,22 @@ def index(request):
         
     return render(request,'sailor/home.html',{'properties':properties,'company':company,'pro':pro})
 
-def validate_username(request):
-    username = request.GET.get('email', None)
-    data = {
-            'is_taken': Newsletter.objects.filter(email="gmail@gmail.com").exists()
-            }
-    return JsonResponse(data)
 
 def contact(request):
+    subject="Hello"
+    if request.method=="POST":
+        form=ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            sender = 'hassanbaras5@gmail.com'
+            recipients = [form.cleaned_data['sender']]
+            mail=form.cleaned_data['sender']
+            fail_silently=False
+            send_mail(subject, message, sender, recipients, fail_silently)
+            messages.success(request, 'Your queries are our first priorities!\r\nYour message has been sent') 
+    else:
+        form=ContactForm()
     return render(request,'sailor/contact.html',{'company':company})
 
 def agent_profile(request):

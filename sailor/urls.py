@@ -19,7 +19,6 @@ urlpatterns = [
      path('submit/',views.submit,name='submit'),
      path('signup/',views.signup,name='signup'),
      path('<int:id>/',views.detail,name='detail'),
-     url(r'^ajax/validate_username/$', views.validate_username, name='validate_username'),
 
 
  ]  

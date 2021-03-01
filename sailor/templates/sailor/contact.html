@@ -12,68 +12,36 @@
                     <!-- FORM -->
                     <div class="col-md-8 col-sm-8">
 						<div class="card pad-all mar-no ">
-                            <div id="contact-map" style="min-height:300px"></div>
-                            <h3>Drop us a line or just say Hello!</h3>
-                            <p>Inspired by luxury European living, this designer family home has multiple living areas, an elevated timber deck with scenic views and 2 x double lock-up garages - Loads of storage and car accommodation!</p>
-                            <!-- Alert Success -->
-                            <div id="alert_success" class="alert alert-success margin-bottom-30">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                <strong>Thank You!</strong> Your message successfully sent!
-                            </div>
-                            <!-- /Alert Success -->
-                            <!-- Alert Failed -->
-                            <div id="alert_failed" class="alert alert-danger margin-bottom-30">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                <strong>[SMTP] Error!</strong> Internal server error!
-                            </div>
-                            <!-- /Alert Failed -->
-                            <!-- Alert Mandatory -->
-                            <div id="alert_mandatory" class="alert alert-warning margin-bottom-30">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                <strong>Sorry!</strong> You need to complete all mandatory (*) fields!
-                            </div>
+                            
                             <!-- /Alert Mandatory -->
                             <form method="post" class="space-md ">
+                            {% csrf_token %}
                                 <fieldset>
                                     <input type="hidden" name="action" value="contact_send">
                                     <div class="row">
                                         <div class="form-group">
-                                            <div class="col-md-4">
-                                                <label for="contact:name">Full Name *</label>
-                                                <input required="" type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
-                                            </div>
+                                            
                                             <div class="col-md-4">
                                                 <label for="contact:email">E-mail Address *</label>
-                                                <input required="" type="email" value="" class="form-control" name="contact[email][required]" id="contact:email">
+                                                <input required="" type="email" value="" class="form-control" name="sender" id="contact:email">
                                             </div>
-                                            <div class="col-md-4">
-                                                <label for="contact:phone">Phone</label>
-                                                <input type="text" value="" class="form-control" name="contact[phone]" id="contact:phone">
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-md-8">
                                                 <label for="contact:subject">Subject *</label>
-                                                <input required="" type="text" value="" class="form-control" name="contact[subject][required]" id="contact:subject">
+                                                <input required="" type="text" value="" class="form-control" name="subject" id="contact:subject">
                                             </div>
-                                            <div class="col-md-4">
-                                                <label>Department</label>
-                                                <select class="form-control pointer" name="contact[department]">
-                                                    <option value="">--- Select ---</option>
-                                                    <option value="Marketing">Sales</option>
-                                                    <option value="Webdesign">Support</option>
-                                                    <option value="Architecture">Just the note</option>
-                                                </select>
-                                            </div>
+                                           
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-md-12">
                                                 <label for="contact:message">Message *</label>
-                                                <textarea required="" maxlength="10000" rows="8" class="form-control" name="contact[message]" id="contact:message"></textarea>
+                                                <textarea required="" maxlength="10000" rows="6" class="form-control" name="message" ></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -90,49 +58,22 @@
                     <!-- INFO -->
                     <div class="col-md-4 col-sm-4">
                         <div class="pad-all card">
-                            <div class="widget">
-                                <hr class="mBtm-50 mTop-30" data-symbol="Featured video">
-                                <div class="responsive-video">
-                                    <div class="fluid-width-video-wrapper" style="padding-top: 56.2%;">
-                                        <iframe src="https://player.vimeo.com/video/122994198" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" id="fitvid0">
-                                        </iframe>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <!-- /widget -->
                             <div class="widget">
-                                <hr class="mBtm-50 mTop-30" data-symbol="ADDRESS">
+                                <hr class="mBtm-50 mTop-30" data-symbol="Notifications">
                                 <address>
-										Design Company
-										<br>
-										55 Eva. Avenue., 1004/115
-										<br>
-										Sarajevo, BA 00125-4587 BiH
-										<br>
+										{% for message in messages %}
+ 								 <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+    								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+     								 <span aria-hidden="true">&times;</span>
+   									 </button>
+   									 {{ message }}
+ 								 </div>
+								{% endfor %}
 									</address>
                             </div>
-                            <div class="widget">
-                                <hr class="mBtm-50 mTop-30" data-symbol="ADDRESS 2">
-                                <address>
-										Design Company
-										<br>
-										55 Eva. Avenue., 1004/115
-										<br>
-										Sarajevo, BA 00125-4587 BiH
-										<br>
-									</address>
-                            </div>
-                            <div class="widget">
-                                <hr class="mBtm-50 mTop-30" data-symbol="ADDRESS 3">
-                                <address>
-										Design Company
-										<br>
-										55 Eva. Avenue., 1004/115
-										<br>
-										Sarajevo, BA 00125-4587 BiH
-										<br>
-									</address>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
