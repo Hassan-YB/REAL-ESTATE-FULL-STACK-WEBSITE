@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from . models import *
 from django.contrib.auth.decorators import login_required
 from .forms import *
@@ -8,6 +8,9 @@ from django.contrib.auth.forms import *
 from django.contrib.auth.models import User
 from django.db import connection
 from django.contrib import messages
+import re
+
+EMAIL_REGEX = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
 
 company=PropertyCompany.objects.all()
 #@login_required
@@ -43,12 +46,28 @@ def index(request):
             return redirect('/')
         if Newsform.is_valid():
             object=Newsletter()
+            mail=Newsform.cleaned_data['email']
             object.email=Newsform.cleaned_data['email']
-            object.save()
-            messages.info(request, 'Thanks for registering in Newsfeed!') 
-            return redirect('/')
+            if Newsletter.objects.filter(email=mail).exists():
+                messages.info(request, 'Email already registered in Newsfeed!')
+                return render(request,'sailor/contact.html')
+            else: 
+                if mail and not re.match(EMAIL_REGEX, mail):
+                    messages.error(request, 'Invalid Format') 
+                    return redirect('/')
+                else:
+                    messages.success(request, 'Thanks for registering in Newsfeed!') 
+                    object.save()
+                    return redirect('/')
         
     return render(request,'sailor/home.html',{'properties':properties,'company':company,'pro':pro})
+
+def validate_username(request):
+    username = request.GET.get('email', None)
+    data = {
+            'is_taken': Newsletter.objects.filter(email="gmail@gmail.com").exists()
+            }
+    return JsonResponse(data)
 
 def contact(request):
     return render(request,'sailor/contact.html',{'company':company})
